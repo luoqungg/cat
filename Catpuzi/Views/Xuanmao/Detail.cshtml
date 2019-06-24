@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Models.info>
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    ul {
+        list-style: none;
+    }
+
+    .li {
+        float: left;
+        margin-left: 100px;
+    }
+</style>
+<h2>
+    @foreach (var item in Model)
+    {
+        <p style="font-size :15px;font-size:larger;margin-left:300px;margin-top:55px;">@item.info_title  </p>
+        <div style="width:550px;margin-left:300px;"><hr style="border:0.5px thin #d18383" /></div>
+        <div>
+            <ul>
+                <li>
+
+                </li>
+                <img style="margin-left:200px;" src="@item.info_img " />
+                <div style="width:auto;margin-left:200px;margin-right:600px;">
+                    <p style="font-size :17px;font-family:Arial">@item.info_content  </p>
+                </div>
+
+            </ul>
+        </div>
+
+
+    }
+
+</h2>
+

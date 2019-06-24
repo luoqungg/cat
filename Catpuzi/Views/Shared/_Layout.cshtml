@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/layout.css")
+    @Styles.Render("~/Content/CatIndex.css")
+    @Styles.Render("~/Content/catdetails.css")
+    @*@Styles.Render("~/Content/bootstrap.min.css")*@
+</head>
+<body>
+    <div>
+        <!-- 头部开始 -->
+        <div class="header">
+            <!-- 顶部开始 -->
+            <div class="top">
+                <div class="contain-1220 clearfix1">
+                    <div class="top-left">
+                        <ul>
+                            @if (Session["UserID"] != null)
+                            {
+                                <li>
+                                    <a href="@Url.Action("UserCenter","User")">欢迎你，@Session["UserName"]</a>
+                                </li>
+
+                                <li>
+                                    <a href="@Url.Action("LoginOff","User")">退出</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <a href="@Url.Action("Login","User")">请登录</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Register","User")">立即注册</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="top-right">
+                        <ul>
+
+                            <li>
+                                <a href="">
+                                    客服热线
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">关于我们</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","Cart")">我的购物车</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                @if (Session["UserID"] != null)
+                {
+                    <div class="user-box">
+                        <div class="user">
+                            <div class="user-hd">
+                                <a href="@Url.Action("UserCenter","User")">
+                                    @if (Session["userHead"] == null)
+                                    {
+                                        <img src="~/images/head.jpg" />
+                                    }
+                                    else
+                                    {
+                                        <img src="../@Session["userHead"]" />
+                                    }
+                                </a>
+                            </div>
+                        </div>
+                        <!--个人中心-->
+                        <div class="user-center">
+                            <a href="@Url.Action("LoginOff","User")">退出登录</a>
+                        </div>
+                    </div>
+
+                }
+
+
+
+            </div>
+
+            <!-- 顶部结束 -->
+            <!-- 导航开始 -->
+            <div class="nav1 contain-1220">
+                <div class="nav-left">
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("Index","Home")">
+                                首页
+                                <div class="background-color1">
+                                    <span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("CatIndex","Cat")">
+                                买猫卖猫
+                                <div class="background-color1">
+                                    <span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","Info")">
+                                猫咪资讯
+                                <div class="background-color1">
+                                    <span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","Xuanmao")">
+                                选猫技巧
+                                <div class="background-color1">
+                                    <span></span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-right">
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("ClassIndex","CatClass")">
+                                猫咪品种
+                                <div class="background-color1">
+                                    <span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","Goods")">
+                                猫咪生活用品
+                                <div class="background-color1">
+                                    <span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Menu","Publish")">
+                                发布信息
+                                <div class="background-color1">
+                                    <span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index3","PrivateMade")">
+                                私人预定
+                                <div class="background-color1">
+                                    <span></span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="logo">
+                    <div class="logo-box">
+                        <a href="@Url.Action("Index","Home")">
+                            <div>
+                                <div id="image">
+                                    <img src="~/images/Logo_03.png">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 导航结束 -->
+        @RenderBody()
+        <!-- 底部开始啦 -->
+        <div class="footer">
+            <div class="footer-bd contain-1220">
+                <ul class="clearfix1">
+                    <li><a href="#">关于我们</a></li>
+                    <li class="spacer"></li>
+                    <li><a href="#">友情链接</a></li>
+                    <li class="spacer"></li>
+                    <li><a href="#">联系我们</a></li>
+                    <li class="spacer"></li>
+                    <li><a href="#">广告服务</a></li>
+                    <li class="spacer"></li>
+                    <li><a href="#">版权说明</a></li>
+                    <li class="spacer"></li>
+                    <li><a href="#">意见反馈</a></li>
+                    <li class="spacer"></li>
+                    <li><a href="#">最近更新</a></li>
+                    <li class="spacer"></li>
+                    <li><a href="#">管理员</a></li>
+                </ul>
+                <p>江西师范大学 Copyright &copy; 2019 - 2020  All Rights Reserved LWX 版权所有！</p>
+                <p>免责声明：猫猫铺子所有宠物猫交易信息内容系用户自行发布，其真实性、合法性由发布人负责，猫猫铺子不提供任何保证，亦不承担任何法律责任！</p>
+            </div>
+        </div>
+
+        <!-- 底部结束啦 -->
+    </div>
+</body>
+</html>

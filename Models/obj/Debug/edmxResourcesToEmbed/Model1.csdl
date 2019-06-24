@@ -1,0 +1,577 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CatpuziModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="admin_id" />
+    </Key>
+    <Property Name="admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="admin_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="cart_id" />
+    </Key>
+    <Property Name="cart_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="good_id" Type="Int32" />
+    <Property Name="num" Type="Int32" />
+    <NavigationProperty Name="Goods" Relationship="Self.FK_Cart_Goods" FromRole="Cart" ToRole="Goods" />
+    <NavigationProperty Name="UserInfo" Relationship="Self.FK_Cart_UserInfo" FromRole="Cart" ToRole="UserInfo" />
+  </EntityType>
+  <EntityType Name="Cat">
+    <Key>
+      <PropertyRef Name="cat_id" />
+    </Key>
+    <Property Name="cat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="catClass_id" Type="Int32" />
+    <Property Name="shop_id" Type="Int32" />
+    <Property Name="cat_sex" Type="Byte" />
+    <Property Name="cat_price" Type="Int32" />
+    <Property Name="isAntiepidemic" Type="Byte" />
+    <Property Name="isInsect" Type="Byte" />
+    <Property Name="cat_num" Type="Int32" />
+    <Property Name="isFullBlood" Type="Byte" />
+    <Property Name="cat_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="isRecommend" Type="Byte" />
+    <NavigationProperty Name="catClass" Relationship="Self.FK_Cat_catClass" FromRole="Cat" ToRole="catClass" />
+    <NavigationProperty Name="Shop" Relationship="Self.FK_Cat_Shop" FromRole="Cat" ToRole="Shop" />
+  </EntityType>
+  <EntityType Name="catClass">
+    <Key>
+      <PropertyRef Name="catClass_id" />
+    </Key>
+    <Property Name="catClass_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="catClass_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cat" Relationship="Self.FK_Cat_catClass" FromRole="catClass" ToRole="Cat" />
+  </EntityType>
+  <EntityType Name="goodClass">
+    <Key>
+      <PropertyRef Name="goodClass_id" />
+    </Key>
+    <Property Name="goodClass_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="goodClass_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Goods" Relationship="Self.FK_Goods_goodClass" FromRole="goodClass" ToRole="Goods" />
+  </EntityType>
+  <EntityType Name="goodComment">
+    <Key>
+      <PropertyRef Name="goodComment_id" />
+    </Key>
+    <Property Name="goodComment_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="good_id" Type="Int32" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="addtime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Goods" Relationship="Self.FK_goodComment_Goods" FromRole="goodComment" ToRole="Goods" />
+    <NavigationProperty Name="UserInfo" Relationship="Self.FK_goodComment_UserInfo" FromRole="goodComment" ToRole="UserInfo" />
+    <NavigationProperty Name="goodReply" Relationship="Self.FK_goodReply_goodComment" FromRole="goodComment" ToRole="goodReply" />
+  </EntityType>
+  <EntityType Name="goodReply">
+    <Key>
+      <PropertyRef Name="goodReply_id" />
+    </Key>
+    <Property Name="goodReply_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="goodComment_id" Type="Int32" Nullable="false" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="reply" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="addtime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="goodComment" Relationship="Self.FK_goodReply_goodComment" FromRole="goodReply" ToRole="goodComment" />
+    <NavigationProperty Name="UserInfo" Relationship="Self.FK_goodReply_UserInfo" FromRole="goodReply" ToRole="UserInfo" />
+  </EntityType>
+  <EntityType Name="Goods">
+    <Key>
+      <PropertyRef Name="good_id" />
+    </Key>
+    <Property Name="good_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="goodClass_id" Type="Int32" Nullable="false" />
+    <Property Name="good_introduce" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="good_price" Type="Int32" />
+    <Property Name="good_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="good_addtime" Type="DateTime" Precision="3" />
+    <Property Name="orderDetails_id" Type="Int32" />
+    <Property Name="shop_id" Type="Int32" />
+    <NavigationProperty Name="Cart" Relationship="Self.FK_Cart_Goods" FromRole="Goods" ToRole="Cart" />
+    <NavigationProperty Name="goodClass" Relationship="Self.FK_Goods_goodClass" FromRole="Goods" ToRole="goodClass" />
+    <NavigationProperty Name="goodComment" Relationship="Self.FK_goodComment_Goods" FromRole="Goods" ToRole="goodComment" />
+    <NavigationProperty Name="orderDetails" Relationship="Self.FK_Goods_orderDetails" FromRole="Goods" ToRole="orderDetails" />
+    <NavigationProperty Name="Shop" Relationship="Self.FK_Goods_Shop" FromRole="Goods" ToRole="Shop" />
+  </EntityType>
+  <EntityType Name="info">
+    <Key>
+      <PropertyRef Name="info_id" />
+    </Key>
+    <Property Name="info_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="infoClass_id" Type="Int32" Nullable="false" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="info_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="info_title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="info_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="infoClass" Relationship="Self.FK_info_infoClass" FromRole="info" ToRole="infoClass" />
+    <NavigationProperty Name="UserInfo" Relationship="Self.FK_info_UserInfo" FromRole="info" ToRole="UserInfo" />
+    <NavigationProperty Name="infoComment" Relationship="Self.FK_infoComment_info" FromRole="info" ToRole="infoComment" />
+  </EntityType>
+  <EntityType Name="infoClass">
+    <Key>
+      <PropertyRef Name="infoClass_id" />
+    </Key>
+    <Property Name="infoClass_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="infoClass_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="info" Relationship="Self.FK_info_infoClass" FromRole="infoClass" ToRole="info" />
+  </EntityType>
+  <EntityType Name="infoComment">
+    <Key>
+      <PropertyRef Name="infoComment_id" />
+    </Key>
+    <Property Name="infoComment_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="info_id" Type="Int32" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="addtime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="info" Relationship="Self.FK_infoComment_info" FromRole="infoComment" ToRole="info" />
+    <NavigationProperty Name="UserInfo" Relationship="Self.FK_infoComment_UserInfo" FromRole="infoComment" ToRole="UserInfo" />
+    <NavigationProperty Name="infoReply" Relationship="Self.FK_infoReply_infoComment" FromRole="infoComment" ToRole="infoReply" />
+  </EntityType>
+  <EntityType Name="infoReply">
+    <Key>
+      <PropertyRef Name="infoReply_id" />
+    </Key>
+    <Property Name="infoReply_id" Type="Int32" Nullable="false" />
+    <Property Name="infoComment_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="reply" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="addtime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="infoComment" Relationship="Self.FK_infoReply_infoComment" FromRole="infoReply" ToRole="infoComment" />
+    <NavigationProperty Name="UserInfo" Relationship="Self.FK_infoReply_UserInfo" FromRole="infoReply" ToRole="UserInfo" />
+  </EntityType>
+  <EntityType Name="MakePrivate">
+    <Key>
+      <PropertyRef Name="myprivate_id" />
+    </Key>
+    <Property Name="myprivate_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Users_id" Type="Int32" Nullable="false" />
+    <Property Name="destination" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="customname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="expenses" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="dates" Type="DateTime" Precision="3" />
+    <Property Name="tools" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="notes" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="UserInfo" Relationship="Self.FK_MakePrivate_UserInfo" FromRole="MakePrivate" ToRole="UserInfo" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="order_time" Type="DateTime" Precision="3" />
+    <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="zipcode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="total_price" Type="Int32" />
+    <NavigationProperty Name="UserInfo" Relationship="Self.FK_Order_UserInfo" FromRole="Order" ToRole="UserInfo" />
+    <NavigationProperty Name="orderDetails" Relationship="Self.FK_orderDetails_Order" FromRole="Order" ToRole="orderDetails" />
+  </EntityType>
+  <EntityType Name="orderDetails">
+    <Key>
+      <PropertyRef Name="orderDetails_id" />
+    </Key>
+    <Property Name="orderDetails_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="num" Type="Int32" />
+    <Property Name="order_id" Type="Int32" />
+    <NavigationProperty Name="Goods" Relationship="Self.FK_Goods_orderDetails" FromRole="orderDetails" ToRole="Goods" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_orderDetails_Order" FromRole="orderDetails" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Shop">
+    <Key>
+      <PropertyRef Name="shop_id" />
+    </Key>
+    <Property Name="shop_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="shop_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="shop_introduce" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="shop_addtime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Cat" Relationship="Self.FK_Cat_Shop" FromRole="Shop" ToRole="Cat" />
+    <NavigationProperty Name="Goods" Relationship="Self.FK_Goods_Shop" FromRole="Shop" ToRole="Goods" />
+    <NavigationProperty Name="UserInfo" Relationship="Self.FK_Shop_UserInfo" FromRole="Shop" ToRole="UserInfo" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_head" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="age" Type="Int32" />
+    <Property Name="birth" Type="DateTime" Precision="0" />
+    <Property Name="sex" Type="Byte" />
+    <Property Name="password" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="user_introduce" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cart" Relationship="Self.FK_Cart_UserInfo" FromRole="UserInfo" ToRole="Cart" />
+    <NavigationProperty Name="goodComment" Relationship="Self.FK_goodComment_UserInfo" FromRole="UserInfo" ToRole="goodComment" />
+    <NavigationProperty Name="goodReply" Relationship="Self.FK_goodReply_UserInfo" FromRole="UserInfo" ToRole="goodReply" />
+    <NavigationProperty Name="info" Relationship="Self.FK_info_UserInfo" FromRole="UserInfo" ToRole="info" />
+    <NavigationProperty Name="infoComment" Relationship="Self.FK_infoComment_UserInfo" FromRole="UserInfo" ToRole="infoComment" />
+    <NavigationProperty Name="infoReply" Relationship="Self.FK_infoReply_UserInfo" FromRole="UserInfo" ToRole="infoReply" />
+    <NavigationProperty Name="MakePrivate" Relationship="Self.FK_MakePrivate_UserInfo" FromRole="UserInfo" ToRole="MakePrivate" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Order_UserInfo" FromRole="UserInfo" ToRole="Order" />
+    <NavigationProperty Name="Shop" Relationship="Self.FK_Shop_UserInfo" FromRole="UserInfo" ToRole="Shop" />
+  </EntityType>
+  <Association Name="FK_Cart_Goods">
+    <End Role="Goods" Type="Self.Goods" Multiplicity="0..1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Goods">
+        <PropertyRef Name="good_id" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="good_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cart_UserInfo">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cat_catClass">
+    <End Role="catClass" Type="Self.catClass" Multiplicity="0..1" />
+    <End Role="Cat" Type="Self.Cat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="catClass">
+        <PropertyRef Name="catClass_id" />
+      </Principal>
+      <Dependent Role="Cat">
+        <PropertyRef Name="catClass_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cat_Shop">
+    <End Role="Shop" Type="Self.Shop" Multiplicity="0..1" />
+    <End Role="Cat" Type="Self.Cat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shop">
+        <PropertyRef Name="shop_id" />
+      </Principal>
+      <Dependent Role="Cat">
+        <PropertyRef Name="shop_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Goods_goodClass">
+    <End Role="goodClass" Type="Self.goodClass" Multiplicity="1" />
+    <End Role="Goods" Type="Self.Goods" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="goodClass">
+        <PropertyRef Name="goodClass_id" />
+      </Principal>
+      <Dependent Role="Goods">
+        <PropertyRef Name="goodClass_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_goodComment_Goods">
+    <End Role="Goods" Type="Self.Goods" Multiplicity="0..1" />
+    <End Role="goodComment" Type="Self.goodComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Goods">
+        <PropertyRef Name="good_id" />
+      </Principal>
+      <Dependent Role="goodComment">
+        <PropertyRef Name="good_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_goodComment_UserInfo">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="goodComment" Type="Self.goodComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="goodComment">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_goodReply_goodComment">
+    <End Role="goodComment" Type="Self.goodComment" Multiplicity="1" />
+    <End Role="goodReply" Type="Self.goodReply" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="goodComment">
+        <PropertyRef Name="goodComment_id" />
+      </Principal>
+      <Dependent Role="goodReply">
+        <PropertyRef Name="goodComment_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_goodReply_UserInfo">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="goodReply" Type="Self.goodReply" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="goodReply">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Goods_orderDetails">
+    <End Role="orderDetails" Type="Self.orderDetails" Multiplicity="0..1" />
+    <End Role="Goods" Type="Self.Goods" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="orderDetails">
+        <PropertyRef Name="orderDetails_id" />
+      </Principal>
+      <Dependent Role="Goods">
+        <PropertyRef Name="orderDetails_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Goods_Shop">
+    <End Role="Shop" Type="Self.Shop" Multiplicity="0..1" />
+    <End Role="Goods" Type="Self.Goods" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shop">
+        <PropertyRef Name="shop_id" />
+      </Principal>
+      <Dependent Role="Goods">
+        <PropertyRef Name="shop_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_info_infoClass">
+    <End Role="infoClass" Type="Self.infoClass" Multiplicity="1" />
+    <End Role="info" Type="Self.info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="infoClass">
+        <PropertyRef Name="infoClass_id" />
+      </Principal>
+      <Dependent Role="info">
+        <PropertyRef Name="infoClass_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_info_UserInfo">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="info" Type="Self.info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="info">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_infoComment_info">
+    <End Role="info" Type="Self.info" Multiplicity="0..1" />
+    <End Role="infoComment" Type="Self.infoComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="info">
+        <PropertyRef Name="info_id" />
+      </Principal>
+      <Dependent Role="infoComment">
+        <PropertyRef Name="info_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_infoComment_UserInfo">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="infoComment" Type="Self.infoComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="infoComment">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_infoReply_infoComment">
+    <End Role="infoComment" Type="Self.infoComment" Multiplicity="1" />
+    <End Role="infoReply" Type="Self.infoReply" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="infoComment">
+        <PropertyRef Name="infoComment_id" />
+      </Principal>
+      <Dependent Role="infoReply">
+        <PropertyRef Name="infoComment_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_infoReply_UserInfo">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="infoReply" Type="Self.infoReply" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="infoReply">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MakePrivate_UserInfo">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+    <End Role="MakePrivate" Type="Self.MakePrivate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="MakePrivate">
+        <PropertyRef Name="Users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_UserInfo">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orderDetails_Order">
+    <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+    <End Role="orderDetails" Type="Self.orderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="order_id" />
+      </Principal>
+      <Dependent Role="orderDetails">
+        <PropertyRef Name="order_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Shop_UserInfo">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="Shop" Type="Self.Shop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Shop">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CatpuziEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admin" EntityType="Self.Admin" />
+    <EntitySet Name="Cart" EntityType="Self.Cart" />
+    <EntitySet Name="Cat" EntityType="Self.Cat" />
+    <EntitySet Name="catClass" EntityType="Self.catClass" />
+    <EntitySet Name="goodClass" EntityType="Self.goodClass" />
+    <EntitySet Name="goodComment" EntityType="Self.goodComment" />
+    <EntitySet Name="goodReply" EntityType="Self.goodReply" />
+    <EntitySet Name="Goods" EntityType="Self.Goods" />
+    <EntitySet Name="info" EntityType="Self.info" />
+    <EntitySet Name="infoClass" EntityType="Self.infoClass" />
+    <EntitySet Name="infoComment" EntityType="Self.infoComment" />
+    <EntitySet Name="infoReply" EntityType="Self.infoReply" />
+    <EntitySet Name="MakePrivate" EntityType="Self.MakePrivate" />
+    <EntitySet Name="Order" EntityType="Self.Order" />
+    <EntitySet Name="orderDetails" EntityType="Self.orderDetails" />
+    <EntitySet Name="Shop" EntityType="Self.Shop" />
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" />
+    <AssociationSet Name="FK_Cart_Goods" Association="Self.FK_Cart_Goods">
+      <End Role="Goods" EntitySet="Goods" />
+      <End Role="Cart" EntitySet="Cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cart_UserInfo" Association="Self.FK_Cart_UserInfo">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="Cart" EntitySet="Cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cat_catClass" Association="Self.FK_Cat_catClass">
+      <End Role="catClass" EntitySet="catClass" />
+      <End Role="Cat" EntitySet="Cat" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cat_Shop" Association="Self.FK_Cat_Shop">
+      <End Role="Shop" EntitySet="Shop" />
+      <End Role="Cat" EntitySet="Cat" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Goods_goodClass" Association="Self.FK_Goods_goodClass">
+      <End Role="goodClass" EntitySet="goodClass" />
+      <End Role="Goods" EntitySet="Goods" />
+    </AssociationSet>
+    <AssociationSet Name="FK_goodComment_Goods" Association="Self.FK_goodComment_Goods">
+      <End Role="Goods" EntitySet="Goods" />
+      <End Role="goodComment" EntitySet="goodComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_goodComment_UserInfo" Association="Self.FK_goodComment_UserInfo">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="goodComment" EntitySet="goodComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_goodReply_goodComment" Association="Self.FK_goodReply_goodComment">
+      <End Role="goodComment" EntitySet="goodComment" />
+      <End Role="goodReply" EntitySet="goodReply" />
+    </AssociationSet>
+    <AssociationSet Name="FK_goodReply_UserInfo" Association="Self.FK_goodReply_UserInfo">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="goodReply" EntitySet="goodReply" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Goods_orderDetails" Association="Self.FK_Goods_orderDetails">
+      <End Role="orderDetails" EntitySet="orderDetails" />
+      <End Role="Goods" EntitySet="Goods" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Goods_Shop" Association="Self.FK_Goods_Shop">
+      <End Role="Shop" EntitySet="Shop" />
+      <End Role="Goods" EntitySet="Goods" />
+    </AssociationSet>
+    <AssociationSet Name="FK_info_infoClass" Association="Self.FK_info_infoClass">
+      <End Role="infoClass" EntitySet="infoClass" />
+      <End Role="info" EntitySet="info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_info_UserInfo" Association="Self.FK_info_UserInfo">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="info" EntitySet="info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_infoComment_info" Association="Self.FK_infoComment_info">
+      <End Role="info" EntitySet="info" />
+      <End Role="infoComment" EntitySet="infoComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_infoComment_UserInfo" Association="Self.FK_infoComment_UserInfo">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="infoComment" EntitySet="infoComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_infoReply_infoComment" Association="Self.FK_infoReply_infoComment">
+      <End Role="infoComment" EntitySet="infoComment" />
+      <End Role="infoReply" EntitySet="infoReply" />
+    </AssociationSet>
+    <AssociationSet Name="FK_infoReply_UserInfo" Association="Self.FK_infoReply_UserInfo">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="infoReply" EntitySet="infoReply" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MakePrivate_UserInfo" Association="Self.FK_MakePrivate_UserInfo">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="MakePrivate" EntitySet="MakePrivate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_UserInfo" Association="Self.FK_Order_UserInfo">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orderDetails_Order" Association="Self.FK_orderDetails_Order">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="orderDetails" EntitySet="orderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shop_UserInfo" Association="Self.FK_Shop_UserInfo">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="Shop" EntitySet="Shop" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

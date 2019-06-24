@@ -1,0 +1,39 @@
+﻿@model Catpuzi.Models.catIndexViewModel
+
+
+<div class="drimg">
+    <img src="~/images/Logo_03.png">
+    <div class="shop-name">
+        店铺名：<span>@Model.ByCatID.shop_name</span>
+    </div>
+    <div class="phone">
+        联系电话：<span>@Model.ByShopID.phone</span>
+    </div>
+</div>
+
+<div class="server">
+    <h5>特色服务支持</h5>
+    <span>联系我时请说明是在"猫咪铺子"找到</span>
+</div>
+
+<div class="mcat">
+    <div class="mname">该商家其他猫咪</div>
+    <div class="mcat-item">
+        @foreach (var item in Model.BySId)
+        {
+
+            <a href="@Url.Action("CatDetails","Cat",new { id=item.cat_id })">
+                <img src="../@item.cat_img">
+                <div class="">
+                    <span style="color: #F10215;">精品推荐：</span>
+                    <span>@item.Shop.shop_introduce</span>
+                </div>
+                <div>
+                    <span style="font-weight: 700;">价格：</span>
+                    <span style="color: #F10215;">@item.cat_price 元/只</span>
+                </div>
+            </a>
+
+        }
+    </div>
+</div>

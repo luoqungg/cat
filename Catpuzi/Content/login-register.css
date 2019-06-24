@@ -1,0 +1,151 @@
+﻿body {
+    background-color: #fff;
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.eot?3w6mo8');
+    src: url('../fonts/icomoon.eot?3w6mo8#iefix') format('embedded-opentype'), url('../fonts/icomoon.ttf?3w6mo8') format('truetype'), url('../fonts/icomoon.woff?3w6mo8') format('woff'), url('../fonts/icomoon.svg?3w6mo8#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.lr-w {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.lr-top {
+    background: #fff;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.2);
+}
+
+#logo div {
+    width: 89px;
+    background: pink;
+}
+/*logo开始*/
+#logo a {
+    display: block;
+    width: 89px;
+    height: 89px;
+    background: #fff;
+    background: url(../Images/Logo_03.png) no-repeat top center;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+/*logo结束*/
+
+#logo span {
+    font-size: 24px;
+    text-align: center;
+    line-height: 89px;
+    margin: 0 40px;
+}
+
+.text {
+    width: 326px;
+    height: 70px;
+    margin: auto;
+    /*margin-top:30px;*/
+    position: relative;
+}
+
+    .text label, .itex {
+        position: absolute;
+        height: 38px;
+        line-height: 38px;
+        border: 1px solid #ccc;
+    }
+
+    .text label {
+        left: 0;
+        top: 0;
+        width: 80px;
+        text-align: right;
+    }
+
+    .text em {
+        background: url(../Images/pwd-icons-new.png) no-repeat;
+    }
+
+    .text i, .text em {
+        position: absolute;
+        width: 40px;
+        height: 38px;
+        left: 82px;
+        top: 1px;
+    }
+
+    .text i {
+        font-family: icomoon;
+        text-align: center;
+        line-height: 38px;
+        background-color: #F4F4F4;
+        color: #CFCFCF;
+    }
+
+.two em {
+    background-position: -50px 0;
+}
+
+.itex {
+    width: 250px;
+    left: 81px;
+    top: 0;
+    padding-left: 5px;
+}
+
+.error-message {
+    position: absolute;
+    bottom: 5px;
+    left: 80px;
+    color: skyblue;
+    list-style: none;
+}
+
+    .error-message span {
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+#user, #pwd, #area, #pwdAgain, #phone {
+    width: 215px;
+    padding-left: 40px;
+}
+
+.submit {
+    position: absolute;
+}
+
+    .submit input {
+        width: 304px;
+        height: 33px;
+        background: #f10215;
+        color: #fff;
+        cursor: pointer;
+    }
+
+.sub {
+    height: 50px;
+    width: 50%;
+    background: #fff;
+    position: relative;
+    line-height: 50px;
+}
+
+    .sub a {
+        position: absolute;
+        right: 80px;
+        font-size: 14px;
+        padding-left: 20px;
+    }
+
+        .sub a em {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            left: 0;
+            top: 16px;
+            background: url(../Images/pwd-icons-new.png) no-repeat right -75px;
+        }

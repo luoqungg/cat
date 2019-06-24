@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Models.Cat>
+@if (Model.Count() == 0)
+{
+    <div class="none contain-1220">
+        <p>没有该价位的猫咪哦，亲亲~~</p>
+    </div>
+}
+else
+{
+    <div class="cat">
+        <ul class="uu clearfix">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <a href="@Url.Action("CatDetails","Cat",new { id=item.cat_id})"><img src="@item.cat_img" width="280" height="220" /></a>
+                    <span>纯种保证,出售纯种布偶猫 波斯猫 英短 美短 矮脚猫等</span>
+                    <span><strong>价格：</strong><em>@item.cat_price 元/只</em></span>
+                    <span><em>地区：</em>@item.Shop.UserInfo.address</span>
+                    <span>@item.Shop.shop_name</span>
+                    <span>@item.Shop.UserInfo.user_name</span>
+                </li>
+            }
+        </ul>
+
+    </div>
+}
+

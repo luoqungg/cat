@@ -1,0 +1,77 @@
+D:\三层例子\CatPuzi\BLL\bin\Debug\BLL.dll
+D:\三层例子\CatPuzi\BLL\bin\Debug\BLL.pdb
+D:\三层例子\CatPuzi\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+D:\三层例子\CatPuzi\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\三层例子\CatPuzi\BLL\obj\Debug\BLL.dll
+D:\三层例子\CatPuzi\BLL\obj\Debug\BLL.pdb
+D:\三层例子\CatPuzi\BLL\bin\Debug\DAL.dll
+D:\三层例子\CatPuzi\BLL\bin\Debug\DALFactory.dll
+D:\三层例子\CatPuzi\BLL\bin\Debug\IDAL.dll
+D:\三层例子\CatPuzi\BLL\bin\Debug\Models.dll
+D:\三层例子\CatPuzi\BLL\bin\Debug\EntityFramework.dll
+D:\三层例子\CatPuzi\BLL\bin\Debug\DALFactory.pdb
+D:\三层例子\CatPuzi\BLL\bin\Debug\DAL.pdb
+D:\三层例子\CatPuzi\BLL\bin\Debug\DAL.dll.config
+D:\三层例子\CatPuzi\BLL\bin\Debug\IDAL.pdb
+D:\三层例子\CatPuzi\BLL\bin\Debug\Models.pdb
+D:\三层例子\CatPuzi\BLL\bin\Debug\Models.dll.config
+D:\三层例子\CatPuzi\BLL\bin\Debug\EntityFramework.xml
+D:\三层例子\CatPuzi\BLL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\三层例子\CatPuzi\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\Ailocy\Desktop\CatPuzi\BLL\bin\Debug\BLL.dll
+C:\Users\Ailocy\Desktop\CatPuzi\BLL\bin\Debug\BLL.pdb
+C:\Users\Ailocy\Desktop\CatPuzi\BLL\bin\Debug\DAL.dll
+C:\Users\Ailocy\Desktop\CatPuzi\BLL\bin\Debug\DALFactory.dll
+C:\Users\Ailocy\Desktop\CatPuzi\BLL\bin\Debug\IDAL.dll
+C:\Users\Ailocy\Desktop\CatPuzi\BLL\bin\Debug\Models.dll
+C:\Users\Ailocy\Desktop\CatPuzi\BLL\bin\Debug\EntityFramework.dll
+C:\Users\Ailocy\Desktop\CatPuzi\BLL\bin\Debug\DALFactory.pdb
+C:\Users\Ailocy\Desktop\CatPuzi\BLL\bin\Debug\DAL.pdb
+C:\Users\Ailocy\Desktop\CatPuzi\BLL\bin\Debug\DAL.dll.config
+C:\Users\Ailocy\Desktop\CatPuzi\BLL\bin\Debug\IDAL.pdb
+C:\Users\Ailocy\Desktop\CatPuzi\BLL\bin\Debug\Models.pdb
+C:\Users\Ailocy\Desktop\CatPuzi\BLL\bin\Debug\Models.dll.config
+C:\Users\Ailocy\Desktop\CatPuzi\BLL\bin\Debug\EntityFramework.xml
+C:\Users\Ailocy\Desktop\CatPuzi\BLL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+C:\Users\Ailocy\Desktop\CatPuzi\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\Ailocy\Desktop\CatPuzi\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\Ailocy\Desktop\CatPuzi\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\Ailocy\Desktop\CatPuzi\BLL\obj\Debug\BLL.dll
+C:\Users\Ailocy\Desktop\CatPuzi\BLL\obj\Debug\BLL.pdb
+C:\Users\Administrator\Desktop\CatPuzi\BLL\bin\Debug\BLL.dll
+C:\Users\Administrator\Desktop\CatPuzi\BLL\bin\Debug\BLL.pdb
+C:\Users\Administrator\Desktop\CatPuzi\BLL\bin\Debug\DAL.dll
+C:\Users\Administrator\Desktop\CatPuzi\BLL\bin\Debug\DALFactory.dll
+C:\Users\Administrator\Desktop\CatPuzi\BLL\bin\Debug\IDAL.dll
+C:\Users\Administrator\Desktop\CatPuzi\BLL\bin\Debug\Models.dll
+C:\Users\Administrator\Desktop\CatPuzi\BLL\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Desktop\CatPuzi\BLL\bin\Debug\DALFactory.pdb
+C:\Users\Administrator\Desktop\CatPuzi\BLL\bin\Debug\DAL.pdb
+C:\Users\Administrator\Desktop\CatPuzi\BLL\bin\Debug\DAL.dll.config
+C:\Users\Administrator\Desktop\CatPuzi\BLL\bin\Debug\IDAL.pdb
+C:\Users\Administrator\Desktop\CatPuzi\BLL\bin\Debug\Models.pdb
+C:\Users\Administrator\Desktop\CatPuzi\BLL\bin\Debug\Models.dll.config
+C:\Users\Administrator\Desktop\CatPuzi\BLL\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Desktop\CatPuzi\BLL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+C:\Users\Administrator\Desktop\CatPuzi\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\CatPuzi\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\CatPuzi\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\Administrator\Desktop\CatPuzi\BLL\obj\Debug\BLL.dll
+C:\Users\Administrator\Desktop\CatPuzi\BLL\obj\Debug\BLL.pdb
+E:\Visual Studio  文件\CatPuzi\CatPuzi\BLL\bin\Debug\BLL.dll
+E:\Visual Studio  文件\CatPuzi\CatPuzi\BLL\bin\Debug\BLL.pdb
+E:\Visual Studio  文件\CatPuzi\CatPuzi\BLL\bin\Debug\DAL.dll
+E:\Visual Studio  文件\CatPuzi\CatPuzi\BLL\bin\Debug\DALFactory.dll
+E:\Visual Studio  文件\CatPuzi\CatPuzi\BLL\bin\Debug\IDAL.dll
+E:\Visual Studio  文件\CatPuzi\CatPuzi\BLL\bin\Debug\Models.dll
+E:\Visual Studio  文件\CatPuzi\CatPuzi\BLL\bin\Debug\DALFactory.pdb
+E:\Visual Studio  文件\CatPuzi\CatPuzi\BLL\bin\Debug\DAL.pdb
+E:\Visual Studio  文件\CatPuzi\CatPuzi\BLL\bin\Debug\DAL.dll.config
+E:\Visual Studio  文件\CatPuzi\CatPuzi\BLL\bin\Debug\IDAL.pdb
+E:\Visual Studio  文件\CatPuzi\CatPuzi\BLL\bin\Debug\Models.pdb
+E:\Visual Studio  文件\CatPuzi\CatPuzi\BLL\bin\Debug\Models.dll.config
+E:\Visual Studio  文件\CatPuzi\CatPuzi\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+E:\Visual Studio  文件\CatPuzi\CatPuzi\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+E:\Visual Studio  文件\CatPuzi\CatPuzi\BLL\obj\Debug\BLL.csproj.CopyComplete
+E:\Visual Studio  文件\CatPuzi\CatPuzi\BLL\obj\Debug\BLL.dll
+E:\Visual Studio  文件\CatPuzi\CatPuzi\BLL\obj\Debug\BLL.pdb

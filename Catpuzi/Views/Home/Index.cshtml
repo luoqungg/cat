@@ -1,0 +1,203 @@
+﻿@model Catpuzi.Models.indexViewModel
+
+@{
+    ViewBag.Title = "猫咪铺子---最可爱的猫咪都在这呢";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>猫咪铺子---最可爱的猫咪都在这呢</title>
+    @Styles.Render("~/Content/index.css")
+</head>
+<body>
+    <div id="content">
+        <div class="tupian"></div>
+
+        <div class="tit contain-1220">
+            <div class="cn">热门推荐</div>
+            <div class="en">——&nbsp;&nbsp; POPULAR RECOMMENDED &nbsp;&nbsp;——</div>
+        </div>
+        <div class="popular contain-1220">
+
+            <ul class="clearfix">
+                @foreach (var item in Model.Recommend)
+                {
+
+                    <li>
+                        <div><img src="../@item.cat_img" alt="" width="300" height="200"></div>
+                        <div class="mask">
+                            <h2>
+                                @item.catClass.catClass_name<br />
+                                @item.cat_price-20000元
+                            </h2>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="cat buou contain-1220">
+            <div class="title clearfix">
+                <div class="t-left">
+                    <div class="t-text">1F</div>
+                    <div class="t-a">
+                        <a href="#">布偶猫</a>
+                        <span style="float: right">》</span>
+                    </div>
+                </div>
+                <div class="t-right">
+                    <a href="@Url.Action("CatIndex","Cat")">北京</a>
+                    <a href="@Url.Action("CatIndex","Cat")">上海</a>
+                    <a href="@Url.Action("CatIndex","Cat")">江西</a>
+                    <a href="@Url.Action("CatIndex","Cat")">深圳</a>
+                    <a href="@Url.Action("CatIndex","Cat")">广州</a>
+                    <a href="@Url.Action("CatIndex","Cat")">杭州</a>
+                    <a href="@Url.Action("CatIndex","Cat")" id="buou">更多布偶猫&nbsp;&nbsp;&gt;&gt;</a>
+                </div>
+            </div>
+            <ul class="clearfix uu">
+                @foreach (var item in Model.Buou)
+                {
+                    <li>
+                        <a href="@Url.Action("CatDetails","Cat",new {id=item.cat_id })"><img src="../@item.cat_img" width="280" height="220" /></a>
+                        <span>纯种保证,出售纯种布偶猫 波斯猫 英短 美短 矮脚猫等</span>
+                        <span><strong>价格：</strong><em>@item.cat_price 元/只</em></span>
+                        <span><em>地区：</em>@item.Shop.UserInfo.address</span>
+                        <span>@item.Shop.shop_name</span>
+                        <span>@item.Shop.UserInfo.user_name</span>
+                    </li>
+                }
+            </ul>
+
+        </div>
+
+        <div class="cat xianluo contain-1220">
+            <div class="title clearfix">
+                <div class="t-left">
+                    <div class="t-text">2F</div>
+                    <div class="t-a">
+                        <a href="#">暹罗猫</a>
+                        <span style="        float: right">》</span>
+                    </div>
+                </div>
+                <div class="t-right">
+                    <a href="#">北京</a>
+                    <a href="#">上海</a>
+                    <a href="#">江西</a>
+                    <a href="#">深圳</a>
+                    <a href="#">广州</a>
+                    <a href="#">杭州</a>
+                    <a href="#">更多暹罗猫&nbsp;&nbsp;&gt;&gt;</a>
+                </div>
+            </div>
+            <ul class="clearfix uu">
+                @foreach (var item in Model.XianLuo)
+                {
+                    <li>
+                        <a href="@Url.Action("CatDetails","Cat",new {id=item.cat_id })"><img src="../@item.cat_img" width="280" height="220" /></a>
+                        <span>纯种保证,出售纯种布偶猫 波斯猫 英短 美短 矮脚猫等</span>
+                        <span><strong>价格：</strong><em>@item.cat_price 元/只</em></span>
+                        <span><em>地区：</em>@item.Shop.UserInfo.address</span>
+                        <span>@item.Shop.shop_name</span>
+                        <span>@item.Shop.UserInfo.user_name</span>
+                    </li>
+
+                }
+            </ul>
+        </div>
+
+        <div class="cat yd contain-1220">
+            <div class="title clearfix">
+                <div class="t-left">
+                    <div class="t-text">3F</div>
+                    <div class="t-a">
+                        <a href="#">英国短毛猫</a>
+                        <span style="        float: right">》</span>
+                    </div>
+                </div>
+                <div class="t-right">
+                    <a href="#">北京</a>
+                    <a href="#">上海</a>
+                    <a href="#">江西</a>
+                    <a href="#">深圳</a>
+                    <a href="#">广州</a>
+                    <a href="#">杭州</a>
+                    <a href="#">更多英国短毛猫&nbsp;&nbsp;&gt;&gt;</a>
+                </div>
+            </div>
+            <ul class="clearfix uu">
+                @foreach (var item in Model.Yd)
+                {
+                    <li>
+                        <a href="@Url.Action("CatDetails","Cat",new {id=item.cat_id })"><img src="../@item.cat_img" width="280" height="220" /></a>
+                        <span>纯种保证,出售纯种布偶猫 波斯猫 英短 美短 矮脚猫等</span>
+                        <span><strong>价格：</strong><em>@item.cat_price 元/只</em></span>
+                        <span><em>地区：</em>@item.Shop.UserInfo.address</span>
+                        <span>@item.Shop.shop_name</span>
+                        <span>@item.Shop.UserInfo.user_name</span>
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <div class="tit contain-1220">
+            <div class="cn">猫咪资讯</div>
+            <div class="en">——&nbsp;&nbsp;  THE CAT INFORMATION  &nbsp;&nbsp;——</div>
+        </div>
+
+        <div class="news contain-1220">
+            <ul class="clearfix">
+                @foreach (var item in Model.Post)
+                {
+                    <li>
+                        <div class="clearfix">
+                            <div class="info-img">
+                                <img src="@item.info_img" alt="Alternate Text" />
+                            </div>
+
+
+                            <div class="info-content">
+                                <h2>@item.info_title</h2>
+                                <div id="info-c">@item.info_content</div>
+                                <a href="@Url.Action("Detail","Info",new { id=@item.info_id})" style="color:#f10215">阅读更多➡</a>
+                            </div>
+                        </div>
+
+                    </li>
+                }
+            </ul>
+            <div class="news-more">
+                <a href="@Url.Action("Index","Info")">
+                    更多资讯&gt;&gt;
+                </a>
+                <div class="news-left"></div>
+                <div class="news-right"></div>
+                <div class="news-top"></div>
+                <div class="news-bottom"></div>
+            </div>
+
+
+        </div>
+
+        <div class="tit contain-1220">
+            <div class="cn">友情链接</div>
+            <div class="en">——&nbsp;&nbsp;   FRIENDLY LINK  &nbsp;&nbsp;——</div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#buou').on('click', function (e) {
+                //e.preventDefault()
+                $.ajax({
+                    method: 'post',
+                    url: '/Cat/CatClass',
+                    data: {
+                        name: '布偶猫'
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

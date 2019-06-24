@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FoodModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="User_id" />
+    </Key>
+    <Property Name="User_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_pwd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="User_name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="User_img" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="User_addtime" Type="DateTime" Precision="3" />
+    <Property Name="User_sex" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="User_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="User_birthday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="User_sign" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="FoodEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" />
+  </EntityContainer>
+</Schema>

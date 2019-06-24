@@ -1,0 +1,132 @@
+﻿@model Catpuzi.Models.catIndexViewModel
+@{
+    ViewBag.Title = "CatIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="app">
+    <navbar v-on:func1="get"></navbar>
+
+    <mainbody ref="main"></mainbody>
+</div>
+
+<template id="nav">
+    <div>
+
+        @foreach (var item in Model.CatName)
+        {
+            <a ref="@item.catClass_name" style="        display: none"></a>
+        }
+
+        <div class="pack contain-1220">
+            <div class="t-nav clearfix1">
+                <label>品种：</label>
+                <ul class="clearfix1">
+                    <li v-for="(item,i) in nameArr" :class="[classIndex == i ? 'current' : '']">
+                        <a href="javascript:;" v-on:click="get(item,i)" v-text="item"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="t-nav clearfix1">
+                <label>价格：</label>
+                <ul class="clearfix1">
+
+                    <li v-for="(item,i) in priceArr" :class="[priceIndex == i ? 'current' : '']">
+                        <a href="javascript:;" v-on:click="getPrice(item,i)" v-text="item"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id="main">
+    @*//展示部分*@
+    <div ref="cat" class="contain-1220">
+        @Html.Action("Cat", "Cat")
+    </div>
+</template>
+
+<script src="~/Scripts/vue.min.js"></script>
+<script src="~/Scripts/axios.min.js"></script>
+<script type="text/javascript">
+    var nav = {
+        template: '#nav',
+        data() {
+            return {
+                nameArr: ['不限'],
+                classIndex: 0,
+                priceArr: ['不限', '1000以上', '2000以上', '3000以上', '4000以上'],
+                priceIndex: 0,
+                flag: false,
+                price: 0,
+                name: '不限'
+            }
+        },
+        mounted() {
+            let doms = this.$refs
+            for (var key in doms) {
+                this.nameArr.push(key)//获取猫的种类
+            }
+        },
+        methods: {
+            get(item, index) {
+                this.classIndex = index
+                this.name = item
+                axios.post('/Cat/Cat', {
+                    price: this.price,
+                    name: this.name
+                }).then(res => {
+                    this.$emit('func1', res.data)
+                })
+            },
+            getPrice(item, index) {
+                this.priceIndex = index
+                if (item == '不限') {//如果点击的按钮为不限，令参数price=0；
+                    this.price = 0
+                    axios.post('/Cat/Cat', {
+                        price: this.price,
+                        name: this.name
+                    }).then(res => {
+                        this.$emit('func1', res.data)
+                    })
+                } else {//如果点击的按钮为其他，整数化参数；
+                    this.price = parseInt(item)
+                    axios.post('/Cat/Cat', {
+                        price: this.price,
+                        name: this.name
+                    }).then(res => {
+                        this.$emit('func1', res.data)
+                    })
+                }
+            }
+        }
+    }
+
+
+    var main = {
+        template: '#main',
+        methods: {
+        }
+    }
+
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+
+        },
+        methods: {
+            get(data) {
+                let self = this
+                self.$refs.main.$refs.cat.innerHTML = data;
+            }
+        },
+        mounted() {
+
+        },
+        components: {
+            'navbar': nav,
+            'mainbody': main
+        }
+    })
+</script>

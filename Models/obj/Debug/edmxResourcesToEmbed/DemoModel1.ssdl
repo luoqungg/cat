@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FoodModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="User_id" />
+    </Key>
+    <Property Name="User_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_pwd" Type="nvarchar" MaxLength="50" />
+    <Property Name="User_name" Type="nchar" MaxLength="10" />
+    <Property Name="User_img" Type="nvarchar" MaxLength="50" />
+    <Property Name="User_addtime" Type="datetime" />
+    <Property Name="User_sex" Type="nchar" MaxLength="2" />
+    <Property Name="User_phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="User_birthday" Type="nvarchar" MaxLength="50" />
+    <Property Name="User_sign" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityContainer Name="FoodModelStoreContainer">
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,74 @@
+﻿@model Models.Cat
+<div>
+    <div class="page_waper">
+        <h4>填写定制信息</h4>
+        <table width:"100%"="">
+            @using (Html.BeginForm("Index3", "PrivateMade", FormMethod.Post, new { id = "CreateForm" }))
+            {
+                <tbody>
+                    @*<tr>
+                            <td width:"101"=""><span class="red">＊</span>猫咪品种</td>
+                            <td colspan="4">
+                                <input name="txtFoodType" type="text" id="txtFoodType" class="txt destination">
+
+                            </td>
+                        </tr>*@
+                    <tr>
+                        <td><span class="red">＊</span>姓名</td>
+                        <td>
+                            <input name="txtCustomname" type="text" id="txtCustomname" class="txt name">
+                        </td>
+                        <td width:"101"="">收货地址</td>
+                        <td>
+                            <input name="txtDestination" type="text" id="txtDestination" class="txt">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="red">＊</span>电话</td>
+                        <td>
+                            <input name="txtPhone" type="text" id="txtPhone" class="txt phone">
+                        </td>
+                        @*<td>邮箱</td>
+                            <td>
+                                <input name="txtEmail" type="text" id="txtEmail" class="txt">
+                            </td>*@
+                        @*</tr>
+                            <tr>
+                                <td>份数</td>
+                                <td>
+                                    <input name="txtCount" type="text" id="txtCount" class="txt">
+                                </td>*@
+                        <td>预算</td>
+                        <td>
+                            <input name="txtExpenses" type="text" id="txtExpenses" class="txt">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>配送时间</td>
+                        <td>
+                            <input name="txtDates" type="text" id="txtDates" class="txt" onclick="WdatePicker()">
+                        </td>
+                        <td>配送方式</td>
+                        <td>
+                            <input name="txtTools" type="text" id="txtTools" class="txt">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top">备注</td>
+                        <td colspan="4">
+                            <input name="txtNotes" type="text" id="txtNotes" class="txt destination textarea">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td colspan="4">
+                            <input type="submit" value="提交" class="btn disabled">
+                        </td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+
+    </div>
+</div>

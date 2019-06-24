@@ -1,0 +1,145 @@
+﻿@model IEnumerable<Models.catClass>
+@{
+    ViewBag.Title = "ClassIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="~/Content/element.css" rel="stylesheet" />
+    <style>
+        .el-tabs__item{
+            text-align:center !important;
+            height:50px;
+            line-height:50px;
+        }
+        .el-img img{
+            width:500px;
+            height:450px;
+            float:left;
+        }
+        .el-content{
+            float:left;
+            margin-left:20px;
+        }
+        .el-content h2{
+            font-size:32px;
+            font-weight:400;
+        }
+        .price{
+            width:500px;
+            height:80px;
+            padding:0 15px;
+            line-height:80px;
+            background-color:#eee;
+            margin-top:20px;
+            font-size:20px;
+        }
+        .price span{
+            font-size:24px;
+            color:#f10215;
+        }
+        .p{
+            margin-top:20px;
+            float:left;
+            width:170px;
+            height:287px;
+        }
+        .p:nth-child(2){
+            margin:20px 10px 0;
+        }
+        .p p{
+            margin-top:60px;
+            color:#aca0ac;
+        }
+        .p p:first-child{
+            margin-top:10px;
+        }
+        .p p span{
+            color:#373c3c;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="contain-1220">
+        <template>
+            <el-tabs :tab-position="tabPosition" style="height: 491px;margin-top:80px;" type="border-card"  v-model="activeName">
+                @foreach (var item in Model)
+                {
+
+                    <el-tab-pane label="@item.catClass_name" name="@item.catClass_name">
+                        <div class="clearfix">
+                            <div class="el-img">
+                                <img src="" alt="Alternate Text" ref="@item.catClass_id" />
+                            </div>
+                            <div class="el-content">
+                                <h2>@item.catClass_name</h2>
+                                <div class="price">
+                                    参考价格：<span>2000 - 3000 元</span>
+                                </div>
+                                <div>
+                                    <div class="p">
+                                        <p>中文学名：<span>@item.catClass_name</span></p>
+                                        <p>分布区域：<span>世界各地</span></p>
+                                        <p>原始用途：<span>宠物猫</span></p>
+                                        <p>身高：<span>30cm - 40cm</span></p>
+                                    </div>
+                                    <div class="p">
+                                        <p>别名：<span>@item.catClass_name</span></p>
+                                        <p>原产地：<span>英国</span></p>
+                                        <p>今日用途：<span>宠物猫</span></p>
+                                        <p>体重：<span>20kg - 30kg</span></p>
+                                    </div>
+                                    <div class="p">
+                                        <p>祖先：<span>@item.catClass_name</span></p>
+                                        <p>体型：<span>中性</span></p>
+                                        <p>分组：<span>@item.catClass_id</span></p>
+                                        <p>寿命：<span>6 - 10年</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </el-tab-pane>
+
+                }
+            </el-tabs>
+        </template>
+    </div>
+    <script src="~/Scripts/vue.js"></script>
+    <script src="~/Content/element.js"></script>
+    <script type="text/javascript">
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                tabPosition: 'left',
+                attrs: [],
+                activeName: '布偶猫'
+            },
+            mounted() {
+                this.$refs[1].src = '../../images/buou/1.jpg'
+                this.$refs[2].src = '../../images/diluo/1.jpg'
+                this.$refs[3].src = '../../images/szheer/1.jpg'
+                this.$refs[4].src = '../../images/yduan/1.jpg'
+                this.$refs[5].src = '../../images/bosi/1.jpg'
+                this.$refs[6].src = '../../images/elan/1.jpg'
+                this.$refs[7].src = '../../images/mduan/1.jpg'
+                this.$refs[8].src = '../../images/nwsl/1.jpg'
+                this.$refs[9].src = '../../images/ygduan/1.jpg'
+                this.$refs[10].src = '../../images/rbduan/1.jpg'
+                console.log(this.$refs)
+                for (var key in this.$refs) {
+                    this.attrs.push(key)
+                }
+                console.log(this.attrs)
+            },
+            methods: {
+               
+            }
+        })
+    </script>
+</body>
+</html>
+
+

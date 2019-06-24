@@ -1,0 +1,72 @@
+﻿@*@model IEnumerable<Models.info>*@
+@model Catpuzi.Models.CommentDetail
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<script>
+    function pingluen() {
+        //alert("评论成功");
+        location.reload();
+    }
+</script>
+<style>
+    ul {
+        list-style: none;
+    }
+
+    .li {
+        float: left;
+        margin-left: 100px;
+    }
+    .textarea{
+    width:250px;
+    height:70px;
+    }
+</style>
+<div>
+    @foreach (var item in Model.INFO)
+    {
+        <p style="font-size :15px;font-size:larger;margin-left:300px;margin-top:55px;">@item.info_title  </p>
+        <div style="width:550px;margin-left:300px;"><hr style="border:0.5px thin #d18383" /></div>
+        <div>
+            <ul>
+                <li>
+
+                </li>
+                <img style="margin-left:200px;" src="@item.info_img " />
+                <div style="width:auto;margin-left:200px;margin-right:600px;">
+                    <p style="font-size :17px;font-family:Arial">@item.info_content  </p>
+                </div>
+
+            </ul>
+        </div>
+    }
+    <div style="position :absolute ;margin-left :700px;margin-top :00px; ">
+        @using (Ajax.BeginForm("Pingluen", "Info", new AjaxOptions { Confirm = "您是否评论?", HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "result", OnSuccess = "pingluen()" }))
+        {
+            <textarea class="textarea" placeholder="评论最多200字" name="a" ></textarea>
+            <button type="submit" >提交</button>
+        }
+    </div>
+</div>
+<div id="result" style="margin-left:200px;width:200px; background-color:antiquewhite;">
+    @foreach (var n in Model.USERINFO)
+    {
+        <p style="float:left;">@n.user_name :</p>
+        <img style="width:30px;height:30px;border:solid;" src="../@n.user_head">
+        
+    }
+    <p>以下为网友评论：</p>
+    @foreach (var n in Model.INFO1)
+    {
+        <p>@n.comment</p>
+    }
+
+</div>
+
+
+

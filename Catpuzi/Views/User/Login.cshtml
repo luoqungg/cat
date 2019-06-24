@@ -1,0 +1,170 @@
+﻿@model Models.UserInfo
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>猫猫铺子--登录界面</title>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    @Styles.Render("~/Content/base.css")
+    @Styles.Render("~/Content/login-register.css")
+    <style type="text/css">
+        .login-content {
+            background-color: #FDFAE9;
+        }
+
+        .login {
+            position: relative;
+            height: 500px;
+            background: url(../Images/bg.jpg) no-repeat bottom center;
+            background-size: cover;
+        }
+
+        #LoginBox {
+            width: 480px;
+            height: 400px;
+            background: #fff;
+            position: absolute;
+            left: 0;
+            bottom: 50px;
+        }
+
+            #LoginBox h2 {
+                font-weight: 400;
+                text-align: center;
+                margin-bottom:40px;
+            }
+        .yanzhengma img {
+            position: absolute;
+            right: 150px;
+            bottom: 100px;
+        }
+
+        .yanzhengma a {
+            position: absolute;
+            right: 80px;
+            bottom: 105px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .submit {
+            right: 80px;
+            bottom: 50px;
+        }
+        .sub {          
+            top:75px ;
+            right:-50%;
+        }
+       
+    </style>
+</head>
+<body>
+    @*顶部LOGO开始*@
+    <div class="lr-top">
+        <div class="lr-w">
+            <div id="logo" class="clearfix">
+                <div class="fr">
+                    <a href="@Url.Action("Index","Home")"></a>
+                </div>
+                <span class="fr">欢迎登录</span>
+            </div>
+        </div>
+    </div>
+    @*顶部logo结束*@
+    @*登录框开始*@
+    <div class="login-content">
+        <div class="lr-w login">
+
+
+            @using (Html.BeginForm("Login", "User", FormMethod.Post, new { id = "LoginBox" }))
+            {
+                @*@Html.ValidationSummary("")*@
+                <h2>用户登录</h2>
+                //请输入用户名
+                <div class="text one clearfix">
+                    <label class="fl">用户名:</label>
+                    @Html.TextBoxFor(user => user.user_name, new { placeholder = "邮箱/用户名/手机号", @class = "itex fl", @id = "user", @name = "user" })
+                    <em></em>
+                    <div class="error-message">@Html.ValidationMessageFor(user=>user.user_name) </div>
+                </div>
+
+
+                //请输入密码
+                <div class="text two">
+                    <label class="fl">密&nbsp;&nbsp;&nbsp;&nbsp;码:</label>
+                    @Html.PasswordFor(user => user.password, new { placeholder = "密码", @class = "itex fl", @id = "pwd" })
+                    <div class="error-message">@Html.ValidationMessageFor(user => user.password)</div>
+                    <em></em>
+                </div>
+
+                //请输入验证码
+                <div class="text">
+                    <label class="fl">验证码:</label>
+                    <input type="text" id="txtverifcode" name="txtverifcode" class="itex fl" placeholder="请输入验证码">
+                </div>
+
+                //验证码图片
+                <div class="yanzhengma">
+                    <span id="txtverifcod">
+                        <img id="validimg" src="@Url.Action("GetYZM", "YZM")" alt="看不清，点击换一张" />
+                        <a id="see" onclick="reloadcode()" class="style-color">换一张</a>
+                    </span>
+                    <span>@ViewBag.mess</span>
+                </div>
+
+                //登录按钮
+                <div class="submit">
+                    <input type="submit" value="登录" style="border:0 none" />
+                </div>
+
+                //底部
+                <div class="sub">
+                    <a href="@Url.Action("Register","User")" class="style-color">
+                        <em></em>
+                        立即注册
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+    @*登录框结束*@
+    @*底部开始*@
+    <div class="footer">
+
+    </div>
+    @*底部结束*@
+    
+    @*验证码*@
+    <script type="text/javascript">
+        $(function () {
+
+        // 为看不清楚绑定事件
+        $("#see").click(function () {
+            $("#validimg").attr("src", "@Url.Content("~/YZM/GetYZM?")" + Math.random());
+        });
+
+        // 为验证码绑定click与mouseover
+        $("#validimg").mouseover(function () {
+            $(this).css("cursor", "pointer");
+        }).click(function () {
+            $("#see").trigger("click");
+        });
+    });
+    function reloadcode() {
+        var verify = document.getElementById('validimg');
+        verify.setAttribute('src', '@Url.Content("/YZM/GetYZM?")' + Math.random());
+    }
+
+    function reloadcodes() {
+        var verify = document.getElementById('validimgs');
+        verify.setAttribute('src', '@Url.Content("/YZM/GetYZM?")' + Math.random());
+    }
+    </script>
+</body>
+</html>

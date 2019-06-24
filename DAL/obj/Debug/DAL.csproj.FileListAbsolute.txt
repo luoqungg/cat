@@ -1,0 +1,45 @@
+D:\三层例子\CatPuzi\DAL\bin\Debug\DAL.dll.config
+D:\三层例子\CatPuzi\DAL\bin\Debug\DAL.dll
+D:\三层例子\CatPuzi\DAL\bin\Debug\DAL.pdb
+D:\三层例子\CatPuzi\DAL\bin\Debug\EntityFramework.dll
+D:\三层例子\CatPuzi\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\三层例子\CatPuzi\DAL\bin\Debug\IDAL.dll
+D:\三层例子\CatPuzi\DAL\bin\Debug\Models.dll
+D:\三层例子\CatPuzi\DAL\bin\Debug\IDAL.pdb
+D:\三层例子\CatPuzi\DAL\bin\Debug\Models.pdb
+D:\三层例子\CatPuzi\DAL\bin\Debug\Models.dll.config
+D:\三层例子\CatPuzi\DAL\bin\Debug\EntityFramework.xml
+D:\三层例子\CatPuzi\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\三层例子\CatPuzi\DAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\三层例子\CatPuzi\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+D:\三层例子\CatPuzi\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\三层例子\CatPuzi\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\三层例子\CatPuzi\DAL\obj\Debug\DAL.dll
+D:\三层例子\CatPuzi\DAL\obj\Debug\DAL.pdb
+D:\三层例子\CatPuzi\Catpuzi\bin\DAL.dll.config
+D:\三层例子\CatPuzi\Catpuzi\bin\DAL.dll
+D:\三层例子\CatPuzi\Catpuzi\bin\DAL.pdb
+C:\Users\Ailocy\Desktop\CatPuzi\Catpuzi\bin\DAL.dll.config
+C:\Users\Ailocy\Desktop\CatPuzi\Catpuzi\bin\DAL.dll
+C:\Users\Ailocy\Desktop\CatPuzi\Catpuzi\bin\DAL.pdb
+C:\Users\Ailocy\Desktop\CatPuzi\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\Ailocy\Desktop\CatPuzi\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Ailocy\Desktop\CatPuzi\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Ailocy\Desktop\CatPuzi\DAL\obj\Debug\DAL.dll
+C:\Users\Ailocy\Desktop\CatPuzi\DAL\obj\Debug\DAL.pdb
+C:\Users\Administrator\Desktop\CatPuzi\Catpuzi\bin\DAL.dll.config
+C:\Users\Administrator\Desktop\CatPuzi\Catpuzi\bin\DAL.dll
+C:\Users\Administrator\Desktop\CatPuzi\Catpuzi\bin\DAL.pdb
+C:\Users\Administrator\Desktop\CatPuzi\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\CatPuzi\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\CatPuzi\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Administrator\Desktop\CatPuzi\DAL\obj\Debug\DAL.dll
+C:\Users\Administrator\Desktop\CatPuzi\DAL\obj\Debug\DAL.pdb
+E:\Visual Studio  文件\CatPuzi\CatPuzi\Catpuzi\bin\DAL.dll.config
+E:\Visual Studio  文件\CatPuzi\CatPuzi\Catpuzi\bin\DAL.dll
+E:\Visual Studio  文件\CatPuzi\CatPuzi\Catpuzi\bin\DAL.pdb
+E:\Visual Studio  文件\CatPuzi\CatPuzi\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+E:\Visual Studio  文件\CatPuzi\CatPuzi\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+E:\Visual Studio  文件\CatPuzi\CatPuzi\DAL\obj\Debug\DAL.csproj.CopyComplete
+E:\Visual Studio  文件\CatPuzi\CatPuzi\DAL\obj\Debug\DAL.dll
+E:\Visual Studio  文件\CatPuzi\CatPuzi\DAL\obj\Debug\DAL.pdb

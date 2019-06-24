@@ -1,0 +1,58 @@
+﻿@model Catpuzi.Models.GoodsModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<table id="cartTable" style="margin-top:50px;margin-left:200px;">
+    <thead>
+        <tr>
+            <th>商品名称</th>
+            <th>图片</th>
+            <th>单价</th>
+            <th>数量</th>
+        </tr>
+    </thead>
+    <tbody>
+        @using (Ajax.BeginForm("jiesuan", "Cart", new AjaxOptions { Confirm = "您是否结算?", HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "result", OnSuccess = "" }))
+        {
+            <input type="submit" value="结算">
+            foreach (var n in Model.CART)
+            {
+
+                <tr>
+                    <td><input type="checkbox" value="">@n.GOOD_INTRODUCE</td>
+                    <td><img style="height:70px;width:70px;" src="@n.GOOD_IMG" /></td>
+                    <td>@n.GOOD_PRICE</td>
+                    <td>
+                        @n.NUM@Ajax.ActionLink("删除", "Remove", new { id = n.cart_id }, null)
+                    </td>
+                </tr>
+
+            }
+
+        }
+
+
+    </tbody>
+
+</table>
+    @*<div style="background-color:antiquewhite;">
+        <div style="margin-left:200px;">
+            @foreach (var n in Model.GOODS)
+            {
+                <input type="checkbox" value="" name="a">@n.good_introduce
+                <p></p>
+
+            }
+        </div>
+        <div style="margin-left :1000px;margin-top:-100px;">
+            @foreach (var n in Model.CART)
+            {
+                <p>@n.num</p>
+                <span style="">@Ajax.ActionLink("删除", "Remove", new { id = n.cart_id }, null)</span>
+
+            }
+        </div>
+    </div>*@

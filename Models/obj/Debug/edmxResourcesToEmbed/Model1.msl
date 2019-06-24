@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CatpuziModelStoreContainer" CdmEntityContainer="CatpuziEntities">
+    <EntitySetMapping Name="Admin">
+      <EntityTypeMapping TypeName="CatpuziModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+          <ScalarProperty Name="admin_name" ColumnName="admin_name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cart">
+      <EntityTypeMapping TypeName="CatpuziModel.Cart">
+        <MappingFragment StoreEntitySet="Cart">
+          <ScalarProperty Name="cart_id" ColumnName="cart_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="good_id" ColumnName="good_id" />
+          <ScalarProperty Name="num" ColumnName="num" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cat">
+      <EntityTypeMapping TypeName="CatpuziModel.Cat">
+        <MappingFragment StoreEntitySet="Cat">
+          <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+          <ScalarProperty Name="catClass_id" ColumnName="catClass_id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="cat_sex" ColumnName="cat_sex" />
+          <ScalarProperty Name="cat_price" ColumnName="cat_price" />
+          <ScalarProperty Name="isAntiepidemic" ColumnName="isAntiepidemic" />
+          <ScalarProperty Name="isInsect" ColumnName="isInsect" />
+          <ScalarProperty Name="cat_num" ColumnName="cat_num" />
+          <ScalarProperty Name="isFullBlood" ColumnName="isFullBlood" />
+          <ScalarProperty Name="cat_img" ColumnName="cat_img" />
+          <ScalarProperty Name="isRecommend" ColumnName="isRecommend" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="catClass">
+      <EntityTypeMapping TypeName="CatpuziModel.catClass">
+        <MappingFragment StoreEntitySet="catClass">
+          <ScalarProperty Name="catClass_id" ColumnName="catClass_id" />
+          <ScalarProperty Name="catClass_name" ColumnName="catClass_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="goodClass">
+      <EntityTypeMapping TypeName="CatpuziModel.goodClass">
+        <MappingFragment StoreEntitySet="goodClass">
+          <ScalarProperty Name="goodClass_id" ColumnName="goodClass_id" />
+          <ScalarProperty Name="goodClass_name" ColumnName="goodClass_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="goodComment">
+      <EntityTypeMapping TypeName="CatpuziModel.goodComment">
+        <MappingFragment StoreEntitySet="goodComment">
+          <ScalarProperty Name="goodComment_id" ColumnName="goodComment_id" />
+          <ScalarProperty Name="good_id" ColumnName="good_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="goodReply">
+      <EntityTypeMapping TypeName="CatpuziModel.goodReply">
+        <MappingFragment StoreEntitySet="goodReply">
+          <ScalarProperty Name="goodReply_id" ColumnName="goodReply_id" />
+          <ScalarProperty Name="goodComment_id" ColumnName="goodComment_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="reply" ColumnName="reply" />
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Goods">
+      <EntityTypeMapping TypeName="CatpuziModel.Goods">
+        <MappingFragment StoreEntitySet="Goods">
+          <ScalarProperty Name="good_id" ColumnName="good_id" />
+          <ScalarProperty Name="goodClass_id" ColumnName="goodClass_id" />
+          <ScalarProperty Name="good_introduce" ColumnName="good_introduce" />
+          <ScalarProperty Name="good_price" ColumnName="good_price" />
+          <ScalarProperty Name="good_img" ColumnName="good_img" />
+          <ScalarProperty Name="good_addtime" ColumnName="good_addtime" />
+          <ScalarProperty Name="orderDetails_id" ColumnName="orderDetails_id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="info">
+      <EntityTypeMapping TypeName="CatpuziModel.info">
+        <MappingFragment StoreEntitySet="info">
+          <ScalarProperty Name="info_id" ColumnName="info_id" />
+          <ScalarProperty Name="infoClass_id" ColumnName="infoClass_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="info_img" ColumnName="info_img" />
+          <ScalarProperty Name="info_title" ColumnName="info_title" />
+          <ScalarProperty Name="info_content" ColumnName="info_content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="infoClass">
+      <EntityTypeMapping TypeName="CatpuziModel.infoClass">
+        <MappingFragment StoreEntitySet="infoClass">
+          <ScalarProperty Name="infoClass_id" ColumnName="infoClass_id" />
+          <ScalarProperty Name="infoClass_name" ColumnName="infoClass_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="infoComment">
+      <EntityTypeMapping TypeName="CatpuziModel.infoComment">
+        <MappingFragment StoreEntitySet="infoComment">
+          <ScalarProperty Name="infoComment_id" ColumnName="infoComment_id" />
+          <ScalarProperty Name="info_id" ColumnName="info_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="infoReply">
+      <EntityTypeMapping TypeName="CatpuziModel.infoReply">
+        <MappingFragment StoreEntitySet="infoReply">
+          <ScalarProperty Name="infoReply_id" ColumnName="infoReply_id" />
+          <ScalarProperty Name="infoComment_id" ColumnName="infoComment_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="reply" ColumnName="reply" />
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MakePrivate">
+      <EntityTypeMapping TypeName="CatpuziModel.MakePrivate">
+        <MappingFragment StoreEntitySet="MakePrivate">
+          <ScalarProperty Name="myprivate_id" ColumnName="myprivate_id" />
+          <ScalarProperty Name="Users_id" ColumnName="Users_id" />
+          <ScalarProperty Name="destination" ColumnName="destination" />
+          <ScalarProperty Name="customname" ColumnName="customname" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="expenses" ColumnName="expenses" />
+          <ScalarProperty Name="dates" ColumnName="dates" />
+          <ScalarProperty Name="tools" ColumnName="tools" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order">
+      <EntityTypeMapping TypeName="CatpuziModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="order_time" ColumnName="order_time" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+          <ScalarProperty Name="total_price" ColumnName="total_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orderDetails">
+      <EntityTypeMapping TypeName="CatpuziModel.orderDetails">
+        <MappingFragment StoreEntitySet="orderDetails">
+          <ScalarProperty Name="orderDetails_id" ColumnName="orderDetails_id" />
+          <ScalarProperty Name="num" ColumnName="num" />
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shop">
+      <EntityTypeMapping TypeName="CatpuziModel.Shop">
+        <MappingFragment StoreEntitySet="Shop">
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="shop_name" ColumnName="shop_name" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="shop_introduce" ColumnName="shop_introduce" />
+          <ScalarProperty Name="shop_addtime" ColumnName="shop_addtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserInfo">
+      <EntityTypeMapping TypeName="CatpuziModel.UserInfo">
+        <MappingFragment StoreEntitySet="UserInfo">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="user_head" ColumnName="user_head" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="birth" ColumnName="birth" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="user_introduce" ColumnName="user_introduce" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

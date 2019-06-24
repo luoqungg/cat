@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FoodModelStoreContainer" CdmEntityContainer="FoodEntities">
+    <EntitySetMapping Name="UserInfo">
+      <EntityTypeMapping TypeName="FoodModel.UserInfo">
+        <MappingFragment StoreEntitySet="UserInfo">
+          <ScalarProperty Name="User_id" ColumnName="User_id" />
+          <ScalarProperty Name="User_pwd" ColumnName="User_pwd" />
+          <ScalarProperty Name="User_name" ColumnName="User_name" />
+          <ScalarProperty Name="User_img" ColumnName="User_img" />
+          <ScalarProperty Name="User_addtime" ColumnName="User_addtime" />
+          <ScalarProperty Name="User_sex" ColumnName="User_sex" />
+          <ScalarProperty Name="User_phone" ColumnName="User_phone" />
+          <ScalarProperty Name="User_birthday" ColumnName="User_birthday" />
+          <ScalarProperty Name="User_sign" ColumnName="User_sign" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

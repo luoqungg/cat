@@ -1,0 +1,309 @@
+﻿@model Catpuzi.Models.catIndexViewModel
+@{
+    ViewBag.Title = "CatIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        .clearfix:after {
+            content: "";
+            display: block;
+            height: 0;
+            visibility: hidden;
+            clear: both;
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+
+        .cat {
+            margin-top: 50px;
+        }
+
+        .uu li {
+            float: left;
+            width: 280px;
+            height: 330px;
+            margin-right: 30px;
+            margin-top: 20px;
+            border: 1px solid rgba(255,255,255,0);
+            transition: all .5s;
+            position: relative;
+        }
+
+            .uu li:nth-child(4n) {
+                margin-right: 0px;
+            }
+
+            .uu li:hover {
+                border: 1px solid #f10215;
+            }
+
+                .uu li:hover img {
+                    transform: scale(1.1);
+                }
+
+        .uu img {
+            transition: all .5s;
+        }
+
+        .uu li a {
+            display: block;
+            width: 280px;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .uu li span {
+            position: absolute;
+        }
+
+            .uu li span:nth-child(2) {
+                left: 0;
+                bottom: 80px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                width: 280px;
+            }
+
+            .uu li span:nth-child(3) {
+                left: 0;
+                bottom: 45px;
+            }
+
+                .uu li span:nth-child(3) em {
+                    color: #f10215;
+                    font-style: normal;
+                }
+
+            .uu li span:nth-child(4) {
+                left: 185px;
+                bottom: 45px;
+            }
+
+                .uu li span:nth-child(4) em {
+                    color: #ccc;
+                    font-style: normal;
+                }
+
+            .uu li span:nth-child(5) {
+                left: 0px;
+                bottom: 10px;
+                font-size: 14px;
+                color: #ccc;
+            }
+
+            .uu li span:nth-child(6) {
+                left: 237px;
+                bottom: 10px;
+                font-size: 14px;
+            }
+
+        .pack {
+            margin-top: 60px;
+            border-top: 1px solid #ccc;
+        }
+
+        .t-nav {
+            border-bottom: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            border-left: 1px solid #ccc;
+            padding: 5px 0;
+        }
+
+            .t-nav ul {
+                float: left;
+            }
+
+            .t-nav label {
+                float: left;
+                width: 100px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+            }
+
+            .t-nav li {
+                float: left;
+                margin-right: 20px;
+            }
+
+                .t-nav li a {
+                    display: inline-block;
+                    color: #333;
+                    height: 40px;
+                    line-height: 40px;
+                    padding: 0 5px;
+                }
+
+                    .t-nav li a:hover {
+                        color: #f10215;
+                    }
+
+                .t-nav li.current {
+                    background-color: red;
+                }
+
+                    .t-nav li.current a {
+                        color: white
+                    }
+
+        .none {
+            height: 500px;
+            background: #eee;
+            color: #333;
+            font-size: 50px;
+            text-align: center;
+            line-height: 500px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+
+        <navbar v-on:func="get" v-on:get="price"></navbar>@*上部导航*@
+
+
+
+        <mainbody ref="mainbd"></mainbody>@*//展示部分*@
+    </div>
+
+    <template id="nav">
+        @*上部导航*@
+        <div class="pack contain-1220">
+            <div class="t-nav clearfix">
+                <label>品种：</label>
+                <ul class="clearfix">
+
+                    <li v-for="(item,i) in list" :class="[classIndex == i ? 'current' : '']">
+                        <a href="javascript:;" v-on:click="get(item,i)" ref="txt" v-text="item"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="t-nav clearfix">
+                <label>价格：</label>
+                <ul class="clearfix">
+
+                    <li v-for="(item,i) in price" :class="[priceIndex == i ? 'current' : '']">
+                        <a href="javascript:;" v-on:click="getPrice(item,i)" v-text="item"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </template>
+
+    <template id="main">
+        @*//展示部分*@
+        <div ref="cat" class="contain-1220">
+            @Html.Action("CatClass", "Cat")
+        </div>
+    </template>
+    <script src="~/Scripts/vue.js"></script>
+    <script src="~/Scripts/axios.js"></script>
+    <script type="text/javascript">
+        var nav = {//上部导航
+            template: '#nav',
+            data() {
+                return {
+                    list: [],
+                    classIndex: 0,
+                    price: ['不限', '1000以上', '2000以上', '3000以上', '4000以上'],
+                    priceIndex: 0,
+                    flag: false
+                }
+            },
+            mounted() {
+                let self = this
+                axios({
+                    method: 'get',
+                    url: '/Cat/ClassName'
+                }).then(res => {
+                    this.list = res.data.Data
+                    this.list.unshift('不限')
+                    console.log(res.data.Data)
+                })
+            },
+            methods: {
+                get(name, index) {
+                    this.classIndex = index
+
+                    this.$emit('func', name)
+                },
+                getPrice(item, index) {
+                    this.priceIndex = index
+                    if (item == '不限') {
+                        console.log(index)
+                        return this.$emit('get', index)
+                    }
+                    item = parseInt(item)
+                    this.$emit('get', item)
+                }
+            }
+        }
+
+        var main = {
+            template: '#main',
+            methods: {
+
+            }
+        }
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+                get(name) {
+                    let self = this
+                    axios({
+                        method: 'post',
+                        url: '/Cat/CatClass',
+                        data: {
+                            name: name
+                        }
+                    }).then(res => {
+                        self.$refs.mainbd.$refs.cat.innerHTML = res.data;
+                    })
+                },
+                price(params) {
+                    let self = this
+                    axios({
+                        method: 'post',
+                        url: '/Cat/CatPrice',
+                        data: {
+                            price: params
+                        }
+                    }).then(res => {
+                        self.$refs.mainbd.$refs.cat.innerHTML = res.data;
+                    })
+                }
+            },
+            components: {
+                'navbar': nav,
+                'mainbody': main
+            },
+            mounted() {
+                let self = this
+                //axios({
+                //    method: 'get',
+                //    url: '/Cat/Arr'
+                //}).then(res => {
+                //    //this.list = res.data.Data
+                //    //this.list.unshift('不限')
+                //    //console.log(res.data.Data)
+                //    console.log(res)
+                //})
+            }
+        })
+
+    </script>
+</body>
+</html>

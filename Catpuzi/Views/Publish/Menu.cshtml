@@ -1,0 +1,213 @@
+﻿@model Catpuzi.Models.PublishViewModel
+
+@Styles.Render("~/Content/bootstrap.min.css")
+<style>
+    .none {
+        display: none;
+    }
+
+    form {
+        display: none;
+    }
+
+        form.current {
+            display: block
+        }
+</style>
+<body>
+
+    <ul class="nav nav-pills container" id="tab-hd" style="margin-top:50px;margin-bottom:20px;">
+        <li role="presentation" class="active"><a href="javascript:;">发布猫咪</a></li>
+        <li role="presentation"><a href="javascript:;">发布资讯</a></li>
+        <li role="presentation"><a href="javascript:;">发布商品</a></li>
+    </ul>@*选项卡*@
+
+    <ul id="catClassName" class="none">
+        @foreach (var item in Model.CatClass)
+        {
+            <li>@item.catClass_name</li>//获取到类别名称
+        }
+    </ul>@*猫咪类别*@
+    <form class="container current" id="form-cat">
+        @*发布猫咪*@
+        <input type="hidden" value="@Session["UserID"]" />@*判断用户有没有登陆*@
+        <div class="form-group form-inline">
+            <label>猫咪品种：<select id="cat" class="form-control"></select></label>
+        </div>
+        <div class="form-group form-inline">
+            <label>猫咪性别：</label>
+            <label class="radio-inline"><input type="radio" name="sex" value="1" />公</label>
+            <label class="radio-inline"><input type="radio" name="sex" value="0" />母</label>
+        </div>
+        <div class="form-group form-inline">
+            <label>猫咪价格：<input type="text" name="price" class="form-control" /></label>
+        </div>
+        <div class="form-group form-inline">
+            <label>猫咪图片：<input type="file" name="img" /></label>
+        </div>
+        <input type="button" value="发布" id="btn" class="btn btn-success" />
+    </form>@*发布猫咪*@
+
+
+
+    <ul id="infoClassName" class="none">
+        @foreach (var item in Model.InfoClass)
+        {
+            <li>@item.infoClass_name</li>
+        }
+    </ul>@*资讯类别*@
+    <form class="container" id="form-info">
+        <input type="hidden" value="@Session["UserID"]" />@*判断用户有没有登陆*@
+        <div class="form-group form-inline">
+            <label>资讯类别：<select id="info" class="form-control"></select></label>
+        </div>
+        <div class="form-group form-inline">
+            <label>资讯标题：<input type="text" name="title-info" class="form-control" /></label>
+        </div>
+        <div class="form-group form-inline">
+            <label>资讯内容：<textarea class="form-control" name="content-info" style="width:1200px;height:120px;"></textarea></label>
+        </div>
+        <div class="form-group form-inline">
+            <label>资讯图片：<input type="file" name="img-info" /></label>
+        </div>
+        <input type="button" value="发布" id="btn-info" class="btn btn-success" />
+    </form>@*发布资讯*@
+
+
+    <ul id="goodsClassName" class="none">
+        @foreach (var item in Model.GoodsClass)
+        {
+            <li>@item.goodClass_name</li>
+        }
+    </ul>@*商品类别*@
+    <form class="container" id="form-goods">
+        <input type="hidden" value="@Session["UserID"]" />@*判断用户有没有登陆*@
+        <div class="form-group form-inline">
+            <label>商品类别：<select id="goods" class="form-control"></select></label>
+        </div>
+        <div class="form-group form-inline">
+            <label>商品价格：<input type="text" name="price-goods" class="form-control" /></label>
+        </div>
+        <div class="form-group form-inline">
+            <label>商品介绍：<textarea class="form-control" name="content-goods" style="width:1200px;height:120px;"></textarea></label>
+        </div>
+        <div class="form-group form-inline">
+            <label>商品图片：<input type="file" name="img-goods" /></label>
+        </div>
+        <input type="button" value="发布" id="btn-goods" class="btn btn-success" />
+    </form>@*发布商品*@
+
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#tab-hd li').on('click', function () {//点击标签，显示相应的表单
+                $(this).addClass('active').siblings().removeClass('active')
+                var idx = $(this).index();
+                $('form').eq(idx).addClass('current').siblings().removeClass('current')
+            })//点击标签显示相应的表单
+
+            function getName(selector, dropdownSelector) {
+                $(selector).each(function (i, ele) {
+                    $(dropdownSelector)
+                        .append('<option value="' + ele.innerText + '">' + ele.innerText + '</option>')
+                })
+            }//让类别名称动态添加到下拉菜单中
+
+            function publish(callback) {//判断的方法
+                if ($('input[type="hidden"]').val() != "") {
+                    if (arguments[4] == "") {
+                        alert('没有上传图片，发布失败')
+                        window.location.reload();//刷新页面
+                    } else if (arguments[1] == '' || arguments[3] == '' || arguments[2] == '') {
+                        alert('有必填项为空，发布失败')
+                        window.location.reload();//刷新页面
+                    } else {
+                        callback()
+                    }
+                } else {
+                    alert("你还没有登陆")
+                    window.location.href = '/User/Login'//跳转到登陆页面
+                }
+            }//判断的方法
+
+            getName('#catClassName li', '#cat')//获取猫咪类别名称
+            $('#btn').on('click', function () {
+                let catName = $('#cat option:selected').text();//猫咪类别名
+                let catSex = $('input[name="sex"]:checked').val();//猫咪性别
+                let catPrice = $('input[name="price"]').val();//猫咪价格
+                let catImg = $('input[name="img"]').val();//猫咪图片路径
+                publish(function () {
+                    $.ajax({
+                        url: '/Publish/Menu',
+                        type: 'post',
+                        data: {
+                            name: catName,
+                            sex: parseInt(catSex),
+                            price: parseInt(catPrice),
+                            filepath: catImg
+                        },
+                        success: function () {
+                            alert('发布猫咪成功！')
+                            window.location.href = '/Cat/CatIndex'//跳转到猫咪首页
+                        },
+                    })
+                }, catName, catSex, catPrice, catImg)
+            })//发布猫咪
+
+
+            getName('#infoClassName li', '#info')//获取资讯类别名称
+            $('#btn-info').on('click', function () {
+                let infoName = $('#info option:selected').text();//资讯类别名
+                let infoTitle = $('input[name="title-info"]').val();//资讯标题
+                let infoContent = $('textarea[name="content-info"]').val();//资讯内容
+                let infoImg = $('input[name="img-info"]').val();//资讯图片路径
+                publish(function () {
+                    $.ajax({
+                    url: '/Publish/PublishInfo',
+                    type: 'post',
+                    data: {
+                        name: infoName,
+                        title: infoTitle,
+                        content: infoContent,
+                        filepath: infoImg
+                    },
+                    success: function () {
+                        alert('发布资讯成功！')
+                        if (infoName == '资讯') {
+                            window.location.href = '/Info/Index'//跳转到资讯首页
+                        } else if (infoName == '选猫技巧') {
+                            window.location.href = '/XuanMao/Index'//跳转到选猫技巧首页
+                        }
+                    }
+                })
+                }, infoName, infoTitle, infoContent, infoImg)
+                
+            })//发布资讯
+
+            getName('#goodsClassName li', '#goods')//获取商品类别名称
+            $('#btn-goods').on('click', function () {
+                let goodsName = $('#goods option:selected').text();//商品类别名
+                let goodsPrice = $('input[name="price-goods"]').val();//商品价格
+                let goodsContent = $('textarea[name="content-goods"]').val();//商品介绍
+                let goodsImg = $('input[name="img-goods"]').val();//商品图片路径
+                publish(function () {
+                    $.ajax({
+                        url: '/Publish/PublishGoods',
+                        type: 'post',
+                        data: {
+                            name: goodsName,
+                            price: parseInt(goodsPrice),
+                            introduce: goodsContent,
+                            filepath: goodsImg
+                        },
+                        success: function () {
+                            alert('发布商品成功！')
+                            window.location.href = '/Goods/Index'//跳转到商品首页
+                        },
+                    })
+                }, goodsName, goodsPrice, goodsContent, goodsImg)
+            })//发布商品
+        })
+    </script>
+</body>

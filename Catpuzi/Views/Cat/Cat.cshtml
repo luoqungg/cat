@@ -1,0 +1,36 @@
+﻿@using PagedList.Mvc;
+@model Catpuzi.Models.catIndexViewModel
+
+@if (Model.AllCats.Count() == 0)
+{
+    <div class="error-404 contain-1220">你瞅啥~~~~~</div>
+}
+else
+{
+    <div class="tit contain-1220">
+        <div class="cn">优品推荐</div>
+        <div class="en">——&nbsp;&nbsp;   OPTIMAL PRODUCT  &nbsp;&nbsp;——</div>
+    </div>
+    <div class="cat">
+        <ul class="uu clearfix1">
+            @foreach (var item in Model.AllCats)
+            {
+                <li>
+
+                    <a href="@Url.Action("CatDetails","Cat",new {id=item.cat_id })"><img src="@item.cat_img" width="280" height="220" /></a>
+                    <span>纯种保证,出售纯种布偶猫 波斯猫 英短 美短 矮脚猫等</span>
+                    <span><strong>价格：</strong><em>@item.cat_price 元/只</em></span>
+                    <span><em>地区：</em>@item.Shop.UserInfo.address</span>
+                    <span>@item.Shop.shop_name</span>
+                    <span>@item.Shop.UserInfo.user_name</span>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div class="tit contain-1220">
+        <div class="cn">友情链接</div>
+        <div class="en">——&nbsp;&nbsp;   FRIENDLY LINK   &nbsp;&nbsp;——</div>
+    </div>
+}
+

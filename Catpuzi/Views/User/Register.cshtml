@@ -1,0 +1,123 @@
+﻿@model Models.UserInfo
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>猫猫铺子-注册页面</title>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    @Styles.Render("~/Content/base.css")
+    @Styles.Render("~/Content/login-register.css")
+    <style type="text/css">
+        #Register-box {
+            width: 700px;
+            height:500px;
+            background: #fff;
+            margin: auto;
+            margin-top: 50px;
+            box-shadow: 0 0 5px rgba(0,0,0,.4);
+            position:relative;
+        }
+
+            #Register-box h2 {
+                font-weight: 400;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        .submit{
+            right:190px;
+            bottom:60px;
+        }
+        .sub{
+            top:40px;
+            right:-34%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        @*顶部LOGO开始*@
+        <div class="lr-top">
+            <div class="lr-w">
+                <div id="logo" class="clearfix">
+                    <div class="fl">
+                        <a href="@Url.Action("Index","Home")"></a>
+                    </div>
+                    <span class="fl">欢迎注册</span>
+                </div>
+            </div>
+        </div>
+        @*顶部logo结束*@
+        @*注册框开始*@
+        <div class="login-content">
+            <div class="lr-w register">
+                @Html.ValidationSummary(true)
+                @using (Html.BeginForm("Register", "User", FormMethod.Post, new { id = "Register-box" }))
+                {
+                    @*@Html.ValidationSummary("", new { style = "color:red;" });*@
+                    <h2>用户注册</h2>
+                    //请输入用户名
+                    <div class="text one">
+                        <label class="fl">用户名:</label>
+                        @Html.TextBoxFor(user => user.user_name, new { placeholder = "用户名", @class = "itex fl", @id = "user" })
+
+                        <em></em>
+                        <div class="error-message">@Html.ValidationMessageFor(user => user.user_name) </div>
+                    </div>
+
+                    //请输入密码
+                    <div class="text two">
+                        <label class="fl">密&nbsp;&nbsp;&nbsp;&nbsp;码:</label>
+                        @Html.PasswordFor(user => user.password, new { placeholder = "密码", @class = "itex fl", @id = "pwd" })
+                        <div class="error-message">@Html.ValidationMessageFor(user => user.password) </div>
+                        <em></em>
+                    </div>
+
+                    //确认密码
+                    <div class="text two">
+                        <label class="fl">确认密码:</label>
+                        @Html.PasswordFor(user => user.user_pwdAgain, new { placeholder = "确认密码", @class = "itex fl", @id = "pwdAgain" })
+                        <div class="error-message">@Html.ValidationMessageFor(user => user.user_pwdAgain) </div>
+                        <em></em>
+                    </div>
+
+                    //电话号码
+                    <div class="text three">
+                        <label class="fl">手机号码:</label>
+                        @Html.TextBoxFor(user => user.phone, new { placeholder = "手机号码", @class = "itex fl", @id = "phone" })
+                        <div class="error-message">@Html.ValidationMessageFor(user => user.phone) </div>
+                        <i></i>
+                    </div>
+
+                    //地区
+                    <div class="text four">
+                        <label class="fl">地区:</label>
+                        @Html.TextBoxFor(user => user.address, new { placeholder = "地区", @class = "itex fl", @id = "area" })
+                        <div class="error-message">@Html.ValidationMessageFor(user => user.address) </div>
+                        <i></i>
+                    </div>
+                    //注册按钮
+                    <div class="submit">
+                        <input type="submit" value="立即注册" style="border:0 none" />
+                    </div>
+
+                    //底部
+                    <div class="sub">
+                        <a href="@Url.Action("Login","User")" class="style-color">
+                            <em></em>
+                            立即登录
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+        @*注册框结束*@
+    </div>
+</body>
+</html>

@@ -1,0 +1,153 @@
+body, ul, ol, h1, h2, h3, h4, h5, h6, input, button {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+.u-contain {
+    width: 980px;
+    margin: 0px auto 40px;
+    position: relative;
+    background-color: #F7F7F7;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .5);
+}
+
+.u-top {
+    width: 100%;
+    height: 320px;
+    background: url(../images/userCenter1.jpg) 0 0 no-repeat;
+    position: relative;
+}
+
+.info {
+    height: 100px;
+    position: absolute;
+    /* background: red; */
+    width: 800px;
+    left: 180px;
+    bottom: 0;
+}
+
+    .info p {
+        margin-top: 10px;
+        color: #fff;
+    }
+
+.name {
+    font-size: 22px;
+}
+
+.sex {
+    font-size: 14px;
+}
+
+.introduce {
+    width: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 14px;
+    text-overflow: ellipsis;
+}
+
+.more {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100px;
+    height: 20px;
+    background: rgba(255, 255, 255, .2);
+    text-align: center;
+    line-height: 20px;
+}
+
+    .more a {
+        text-decoration: none;
+        color: #fff;
+        text-align: center;
+    }
+
+        .more a:hover {
+            color: #f10215;
+        }
+
+.u-head {
+    width: 120px;
+    height: 120px;
+    border: 1px solid transparent;
+    position: absolute;
+    left: 20px;
+    top: 230px;
+}
+
+    .u-head img {
+        width: 120px;
+        height: 120px;
+    }
+
+.tab-hd {
+    height: 80px;
+    border-bottom: 2px solid #6699C9;
+    position: relative;
+}
+
+    .tab-hd ul {
+        left: 20px;
+        overflow: hidden;
+        bottom: 0;
+        position: absolute;
+    }
+
+    .tab-hd li {
+        float: left;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+        background-color: #F7F7F7;
+        border-left: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+    }
+
+        .tab-hd li:last-child {
+            border-right: 1px solid #ccc;
+        }
+
+        .tab-hd li a {
+            display: block;
+            height: 40px;
+            width: 130px;
+            line-height: 40px;
+            text-decoration: none;
+            text-align: center;
+            color: #555555;
+            transition: all .3s;
+        }
+
+li.current {
+    background-color: #639BD3;
+}
+
+.tab-hd li a:hover {
+    color: #fff;
+    width: 150px;
+}
+
+.u-contain .tab-bd {
+    position: relative;
+    width: 980px;
+    height: 500px;
+}
+
+.tab-bd > div {
+    width: 980px;
+    height: 500px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+div.current {
+    display: block;
+}

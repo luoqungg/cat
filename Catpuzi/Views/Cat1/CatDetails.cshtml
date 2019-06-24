@@ -1,0 +1,318 @@
+﻿@model Catpuzi.Models.catIndexViewModel
+
+@{
+    ViewBag.Title = "CatDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    @Styles.Render("~/Content/catdetails.css")
+</head>
+<body>
+    <div id="app">
+        <div class="contain-1220 clearfix">
+            <dleft v-on:func="phone" v-on:funcw="weixin"></dleft>
+
+            <dright></dright>
+        </div>
+
+        <div class="heimu" v-show="tel">
+            <div class="kuang">
+                <img src="~/images/colse1.png" alt="Alternate Text" v-on:click="close1"/>
+                <div class="t-title">
+                    <div class="wenzi">电话咨询</div>
+                </div>
+                <div class="t-content">
+                    <div>店铺名称：@Model.ByID.Shop.shop_name</div>
+                    <div>@Model.ByShopID.phone</div>
+                    <div>联系我是说一下是在猫咪铺子上看到的谢谢</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heimu" v-show="flagwx">
+            <div class="kuang">
+                <img src="~/images/colse1.png" alt="Alternate Text" v-on:click="close2" />
+                <div class="t-title">
+                    <div class="wenzi">微信咨询</div>
+                </div>
+                <div class="t-content">
+                    <div>店铺名称：@Model.ByID.Shop.shop_name</div>
+                    <div id="erweima">
+                        <img src="~/images/erweima.png" alt="Alternate Text" />
+                    </div>
+                    <div>联系我是说一下是在猫咪铺子上看到的谢谢</div>
+                </div>
+            </div>
+        </div>
+        @*<div v-show="flag" class="box">嘻嘻嘻</div>*@
+    </div>
+
+    <template id="dimg">
+        <div>
+            <div class="dtop">
+                <span>你所在的店铺：</span>
+                <span>@Model.ByCatID.shop_name</span>
+            </div>
+            <div class="dleft">
+                <div class="clearfix">
+                    <div class="dimg">
+                        <div class="big_img">
+                            <img src="../@Model.ByID.cat_img" ref="big">
+                        </div>
+                        <div class="small_img">
+                            <img src="../@Model.ByID.cat_img"  v-on:mouseenter="show(i[0])">
+                            <img src="../../images/buou/2.jpg" v-on:mouseenter="show(i[1])">
+                            <img src="../../images/buou/3.jpg" v-on:mouseenter="show(i[2])">
+                            <img src="../../images/buou/4.jpg" v-on:mouseenter="show(i[3])">
+                            @*<img src="../@Model.ByID.cat_img" alt="Alternate Text" />*@
+                        </div>
+                    </div>
+                    <div class="dintro">
+                        <h3>出售宠物猫当天下单当天发货送到你手中</h3>
+                        <div class="dprice clearfix">
+                            <h4>价格：<span>@Model.ByID.cat_price</span>元/只</h4>
+                            <div>卖家承诺：<span>正规商家</span></div>
+                        </div>
+                        <div class="dinfo clearfix">
+                            <div class="tex-box">
+                                <div>在售只数</div>
+                                <div style="        color: #F10215;">@Model.ByID.cat_num 只</div>
+                            </div>
+                            <div class="dbg"></div>
+                            <div class="tex-box">
+                                <div>年龄</div>
+                                <div style="        color: #F10215;">3个月</div>
+                            </div>
+                            <div class="dbg"></div>
+                            <div class="tex-box">
+                                <div>品种</div>
+                                <div style="        color: #F10215;">@Model.ByID.catClass.catClass_name</div>
+                            </div>
+                            <div class="dbg"></div>
+                            <div class="tex-box">
+                                <div>防疫</div>
+                                <div style="        color: #F10215;">2针疫苗</div>
+                            </div>
+                        </div>
+                        <div class="duser">
+                            <div>
+                                <div style="        color: #999;
+        margin-left: 50px;">联系人:</div>
+                                <div style="        color: #333;
+        margin-left: 0;">@Model.ByShopID.user_name</div>
+                            </div>
+                            <div>
+                                <div style="        color: #999;
+        margin-left: 50px;">联系电话:</div>
+                                <div style="        color: #333;
+        margin-left: 0;">@Model.ByShopID.phone</div>
+                            </div>
+                            <div>
+                                <div style="        color: #999;
+        margin-left: 50px;">异地运费:</div>
+                                <div style="        color: #333;
+        margin-left: 0;">包运费！签协议！</div>
+                            </div>
+                        </div>
+                        <div class="dbtn clearfix">
+                            <div class="tel" v-on:click="phone">
+                                <img src="~/images/gougou_tel.jpg">
+                                <span>电话咨询</span>
+                            </div>
+                            <div class="weixin" v-on:click="wx">
+                                <img src="~/images/gougou_weixin.jpg">
+                                <span>微信咨询</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="specific">
+                    <div class="timu">
+                        <span class="red-border"></span>
+                        <span>猫咪信息</span>
+                    </div>
+                    <div class="xinxi">
+                        <div class="iduce">
+                            <div class="iduce-timu">
+                                基本信息
+                            </div>
+                            <div class="iduce-neirong">
+                                @{
+                                    if (Model.ByID.isFullBlood == 1)
+                                    {
+                                        <div>是否纯种：<span style="        color: #333">是</span></div>
+                                    }
+                                    else
+                                    {
+                                        <div>是否纯种：<span style="        color: #333">不是</span></div>
+                                    }
+
+
+
+                                    <div>猫咪品种：<span style="        color: #333">@Model.ByID.catClass.catClass_name</span></div>
+                                    <div>在售数量：<span style="        color: #333">@Model.ByID.cat_num 只</span></div>
+                                    if (Model.ByID.cat_sex == 0)
+                                    {
+                                        <div>猫咪性别：<span style="        color: #333">公</span></div>
+                                    }
+                                    else
+                                    {
+                                        <div>猫咪性别：<span style="        color: #333">母</span></div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="iduce">
+                            <div class="iduce-timu">
+                                健康防疫
+                            </div>
+                            <div class="iduce-neirong">
+                                @{
+                                    if (Model.ByID.isInsect == 1)
+                                    {
+                                        <div>驱虫情况：<span style="        color: #333">已驱虫</span></div>
+                                    }
+                                }
+                                <div>疫苗情况：<span style="        color: #333">2针疫苗</span></div>
+                                <div>猫咪年龄：<span style="        color: #333">3个月</span></div>
+                                <div>能否视频：<span style="        color: #333">能</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="post clearfix">
+                    <div class="timu">
+                        <span class="red-border"></span>
+                        <span>帖子详情</span>
+                    </div>
+                    <div class="post-detail">
+                        <p style="        text-indent: 2em;">
+                            本猫舍所有的猫咪都是精心饲养的，CFA注册猫舍，专业做纯种血统繁育的猫咪，确保您购买的猫咪是纯种健康的，所有的猫咪都是实物拍摄，
+                            一对一销售，每一只猫咪从出生到售出都有专业的喂养人员喂养，并按时陪同玩耍，保证了猫咪的身体和心理的健康，定期做进口的疫苗及驱虫保证每只 猫咪的健康。
+                        </p>
+                        <p style="        text-indent: 2em;">
+                            1.我们的猫咪均使用进口的疫苗及驱虫保证每只猫咪都很健康
+                        </p>
+                        <p style="        text-indent: 2em;">
+                            2.我们的种猫都是从各国引进的纯种名猫后代
+                        </p>
+                        <p style="        text-indent: 2em;">
+                            3.我们猫舍有非常干净，居住在干净的别墅，有猫咪玩耍区，各种爬架，猫别墅。
+                        </p>
+                        <p style="        text-indent: 2em;">
+                            4.我们有专业的医师团队，专业负责整个猫舍的幼猫疫苗和疾病治疗
+                        </p>
+                        <p style="        text-indent: 2em;">
+                            5.出售的幼猫接到家之后有任何问题，包退换。
+                        </p>
+                        <p style="        text-indent: 2em;">
+                            6.支持接到猫咪到就近医院做血液检测，如不纯种，全额退款！！！
+                        </p>
+                        <p style="        text-indent: 2em;">
+                            7.购买本猫舍的猫咪，都会给您发送一份猫咪饲养注意事项，方便您饲养猫咪！
+                        </p>
+                        <p style="        text-indent: 2em;">
+                            <img src="~/images/shop-1.jpg" alt="猫咪交易网" />
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="dright">
+        <div class="dright" ref="dright">
+            @Html.Action("CatShop", "Cat")
+        </div>
+    </template>
+
+    <script src="~/Scripts/vue.js" type="text/javascript" charset="utf-8"></script>
+    <script src="~/Scripts/axios.js"></script>
+    <script type="text/javascript">
+			var dleft = {
+				template: '#dimg',
+				data() {
+					return {
+                        i: [0, 1, 2, 3],
+                        tel: true,
+                        flagw: true
+					}
+				},
+				methods: {
+					show(i) {
+						let self = this
+						switch (i) {
+							case 0:
+								self.$refs.big.src = '../@Model.ByID.cat_img'
+								break;
+							case 1:
+								self.$refs.big.src = '../../images/buou/2.jpg'
+								break;
+							case 2:
+								self.$refs.big.src = '../../images/buou/3.jpg'
+								break;
+							case 3:
+								self.$refs.big.src = '../../images/buou/4.jpg'
+								break;
+							default:
+								break;
+						}
+                    },
+                    phone() {
+                        this.$emit('func', this.tel)
+                    },
+                    wx() {
+                        this.$emit('funcw', this.flagw)
+                    }
+				}
+			}
+
+			var dright = {
+                template: '#dright',
+                mounted() {
+                    let self = this
+                    axios.get('/Cat/CatShop', {
+                        params: {
+                            id: parseInt(@Model.ByID.shop_id)
+                        }
+                    }).then(res => {
+                        self.$refs.dright.innerHTML = res.data;
+                        console.log(res.data)
+                    })
+                }
+			}
+        var app = new Vue({
+            el: '#app',
+            components: {
+                dleft: dleft,
+                dright: dright
+            },
+            methods: {
+                phone(flag) {
+                    this.tel = flag
+                },
+                weixin(flag) {
+                    this.flagwx = flag
+                },
+                close1() {
+                    this.tel = false
+                },
+                close2() {
+                    this.flagwx = false
+                }
+            },
+            data: {
+                tel: false,
+                flagwx: false
+            }
+		})
+    </script>
+</body>
+</html>

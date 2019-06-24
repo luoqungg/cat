@@ -1,0 +1,40 @@
+﻿body,ul,ol,h1,h2,h3,h4,h5,h6,input,button{
+    padding:0;
+    margin:0;
+}
+body {
+    background-color: #EFEFEF;
+}
+input,button{
+    outline:none;
+    border:0;
+}
+em,i{
+    font-style:normal;
+}
+.w{
+    width:1220px;
+    margin:0 auto;
+}
+.fl{
+    float:left;
+}
+.fr{
+    float:right;
+}
+a{
+    text-decoration:none;
+}
+.style-color{
+    color:#f10215!important;
+}
+.clearfix:after{
+    content:"";
+    display:block;
+    height:0;
+    visibility:hidden;
+    clear:both;
+}
+.clearfix{
+    *zoom:1;
+}

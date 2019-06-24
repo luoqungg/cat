@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="772fdb3ba82f41089e6a94a0b6c6060b" Name="Diagram1">
+        <EntityTypeShape EntityType="CatpuziModel.Admin" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatpuziModel.Cart" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatpuziModel.Cat" Width="1.5" PointX="5.25" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatpuziModel.catClass" Width="1.5" PointX="3" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatpuziModel.goodClass" Width="1.5" PointX="5.25" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatpuziModel.goodComment" Width="1.5" PointX="6" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatpuziModel.goodReply" Width="1.5" PointX="8.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatpuziModel.Goods" Width="1.5" PointX="7.5" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatpuziModel.info" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatpuziModel.infoClass" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatpuziModel.infoComment" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatpuziModel.infoReply" Width="1.5" PointX="7.5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatpuziModel.MakePrivate" Width="1.5" PointX="3" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatpuziModel.Order" Width="1.5" PointX="3" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatpuziModel.orderDetails" Width="1.5" PointX="5.25" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatpuziModel.Shop" Width="1.5" PointX="3" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatpuziModel.UserInfo" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <AssociationConnector Association="CatpuziModel.FK_Cart_Goods" ManuallyRouted="false" />
+        <AssociationConnector Association="CatpuziModel.FK_Cart_UserInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="CatpuziModel.FK_Cat_catClass" ManuallyRouted="false" />
+        <AssociationConnector Association="CatpuziModel.FK_Cat_Shop" ManuallyRouted="false" />
+        <AssociationConnector Association="CatpuziModel.FK_Goods_goodClass" ManuallyRouted="false" />
+        <AssociationConnector Association="CatpuziModel.FK_goodComment_Goods" ManuallyRouted="false" />
+        <AssociationConnector Association="CatpuziModel.FK_goodComment_UserInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="CatpuziModel.FK_goodReply_goodComment" ManuallyRouted="false" />
+        <AssociationConnector Association="CatpuziModel.FK_goodReply_UserInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="CatpuziModel.FK_Goods_orderDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="CatpuziModel.FK_Goods_Shop" ManuallyRouted="false" />
+        <AssociationConnector Association="CatpuziModel.FK_info_infoClass" ManuallyRouted="false" />
+        <AssociationConnector Association="CatpuziModel.FK_info_UserInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="CatpuziModel.FK_infoComment_info" ManuallyRouted="false" />
+        <AssociationConnector Association="CatpuziModel.FK_infoComment_UserInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="CatpuziModel.FK_infoReply_infoComment" ManuallyRouted="false" />
+        <AssociationConnector Association="CatpuziModel.FK_infoReply_UserInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="CatpuziModel.FK_MakePrivate_UserInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="CatpuziModel.FK_Order_UserInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="CatpuziModel.FK_orderDetails_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="CatpuziModel.FK_Shop_UserInfo" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

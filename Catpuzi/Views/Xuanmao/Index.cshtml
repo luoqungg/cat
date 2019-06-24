@@ -1,0 +1,45 @@
+﻿@using PagedList.Mvc;
+@*@model IEnumerable<Models.info>*@
+@model Catpuzi.Models.ViewModel1
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    /*ul {
+        list-style: none;
+    }*/
+    li {
+        display: block;
+        float: left;
+    }
+</style>
+
+<div style="width:900px;top:300px;margin-left:200px;">
+    @foreach (var item in Model.INFO)
+    {
+        <table class="table">
+            <tr>
+                <td>
+                    <a href="@Url.Action("Detail","Xuanmao",new { id=@item.info_id})"><img style="width:220px;height:170px;" src="@item.info_img " /></a>
+
+                </td>
+                <td>
+                    <p style="font-size :15px;margin-top:-20px;font-size:larger;">@item.info_title  </p>
+                    <p style="font-size:small;font-size:10px;margin-top:12px;">@item.info_content</p>
+                </td>
+            </tr>
+        </table>
+
+    }
+</div>
+
+@*<div style="position:absolute;left:700px;top:1100px;">*@
+@* <div>Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</div>*@
+@*@Html.PagedListPager(Model, page => Url.Action("Index1", "UseInfo", new { page }))
+    @Html.PagedListPager(Model, page => Url.Action("Index1", "UseInfo", new { page, sortOrder = ViewBag.CurrentSort, SearchString = ViewBag.SearchString }))*@
+<ul style="padding-top:20px;margin-left:700px;">
+    <li>  @Html.PagedListPager(Model.INFO, page => Url.Action("Index", new { page }), new PagedListRenderOptions() { LinkToFirstPageFormat = "首页", LinkToNextPageFormat = "下一页", LinkToPreviousPageFormat = "上一页", LinkToLastPageFormat = "末页", DisplayItemSliceAndTotal = false, MaximumPageNumbersToDisplay = 3 })  </li>
+</ul>
+@*</div>*@
+

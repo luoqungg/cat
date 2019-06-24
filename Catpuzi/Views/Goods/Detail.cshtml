@@ -1,0 +1,163 @@
+﻿@model Catpuzi.Models.GoodsModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<style type="text/css">
+    * {
+        border: none;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .number {
+        padding: 36px 0 28px;
+        width: 400px;
+        margin: auto
+    }
+
+    .mui-numbox {
+        display: inline-block;
+    }
+
+    .minus {
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        border: solid 1px #eaeaea;
+        background: #f5f5f5;
+        color: #9e9e9e;
+    }
+
+    .numbox {
+        border-top: solid 1px #eaeaea;
+        border-bottom: solid 1px #eaeaea;
+        height: 28px;
+        width: 60px;
+        color: #333333;
+        margin-left: -8px;
+        text-align: center;
+        background: transparent;
+    }
+
+        /*.numbox::textfield-decoration-container {
+        }*/
+
+        .numbox::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+
+        .numbox::-webkit-outer-spin-button {
+            -webkit-appearance: none; /* 有无看不出差别 */
+        }
+
+    .plus {
+        margin-left: -8px;
+    }
+
+    .huifu {
+        position: absolute;
+        margin-left: 900px;
+    }
+
+    .huifu1 {
+        margin-left: 00px;
+        width: 300px;
+        height: 100px;
+    }
+
+    .textarea {
+        width: 400px;
+        height: 120px;
+        background-color: aliceblue;
+    }
+</style>
+
+<script>
+    function pingluen() {
+        //alert("评论成功");
+        location.reload();
+    }
+    function reply() {
+        //alert("评论成功");
+        location.reload();
+
+    }
+</script>
+<div style="background-color:#D8E7FA;width:auto;height:100px;">
+    <p style="font-size:30px;margin-left:300px;"> 可爱猫咪生活用品店</p>
+    <p style="font-size:20px;margin-left:300px;"> 欢迎选购！</p>
+</div>
+<div style="background-color:dodgerblue;width:auto;height:20px;">
+</div>
+<div>
+    @foreach (var n in Model.GOODS)
+    {
+        <img style="width:400px;height:400px;margin-left:250px;margin-top:10px;" src="../../@n.good_img">
+        <p style="font-size:20px; margin-left:200px;position:absolute;left:480px;top:250px;">@n.good_introduce</p>
+        <div style="background-color:#FFF2E8;width:600px;height:50px;position:absolute;left:680px;top:300px;"> <span style="font-size:15px;">价格：</span><p style="font-size:25px;margin-left:100px;margin-top:-20px;">￥@n.good_price </p>   </div>
+
+        <div>
+            @using (Ajax.BeginForm("Collection", "Goods", new AjaxOptions { Confirm = "您是否加入购物车?", HttpMethod = "Post" }))
+            {
+                <span style="position:absolute;top:380px;left:700px;">数量：</span><input class="numbox" type="number" name="num" style="position:absolute;top:380px;left:750px;height:20px;">
+
+                <input type="image" src="/images/jietu1.png" name="img" style=" width:170px;height:50px;position:absolute;top:450px;left:700px;">
+                <input type="image" src="/images/jietu.png" name="img" style=" width:170px;height:50px;position:absolute;top:450px;left:900px;">
+
+            }
+        </div>
+    }
+</div>
+<div style="margin-left:700px; ">
+    @using (Ajax.BeginForm("Pingluen", "Goods", new AjaxOptions { Confirm = "您是否评论?", HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "result", OnSuccess = "pingluen()" }))
+    {
+        <textarea class="textarea" placeholder="评论最多200字" name="a"></textarea>
+        <button type="submit">提交</button>
+    }
+</div>
+<div class="" id="result" style="">
+    <div>
+        @foreach (var n in Model.USERCOMMENT)
+        {
+            <div class="">
+                <div class="">
+                    <img style=" margin-left :0px;width :50px;height :50px;" src="../../@n.USER_IMG">
+                    <a class="page-header" style=" ">@n.USER_NAME</a>
+                    <p style="font-size :20px;margin-top :10px;">@n.COMMENT</p>
+
+                    @using (Ajax.BeginForm("Reply", "Goods", new AjaxOptions { Confirm = "您是否回复?", HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "result1", OnSuccess = "reply()" }))
+                    {
+
+                        <input type="hidden" name="comment_id" value="@n.GOOD_COMMENTID" />
+
+                        <input type="button" value="回复" class="huifu">
+                        <div id="reply" class="huifu1 collapse">
+                            <textarea style=" width: 300px;height: 100px;" name="reply" placeholder="评论不超过200字！"></textarea>
+                            <input type="submit" value="回复" style="">
+                        </div>
+
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div style="margin-left:100px; background-color:floralwhite;">
+    @foreach (var m in Model.FOODSHAREREPLY)
+    {
+        <img style="margin-left:0px;width :50px;height:50px;" src="../../@m.USER_IMG">
+        <p style="font-size:15px;margin-left:150px;">@m.REPLY</p>
+        <label style="margin-top:-90px;margin-left:100px;">@m.ADDTIME</label>
+    }
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".huifu").click(function () {
+            $(".huifu1").toggle();
+        });
+    });
+</script>

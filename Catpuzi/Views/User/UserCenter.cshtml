@@ -1,0 +1,255 @@
+﻿@model Catpuzi.Models.UserCenterViewModel
+@{
+    ViewBag.Title = "UserCenter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    @Styles.Render("~/Content/userCenter.css")
+    <style>
+        .shop{
+            color:red;
+            height:200px;
+            margin:20px auto;
+            background-color:#fff;
+        }
+        .shop-img{
+            float:left;
+        }
+        .shop-img img{
+            width:200px;
+            height:200px;
+        }
+        .shop-content{
+            float:left;
+            margin-left:50px;
+        }
+        .shop-content p{
+            color:#999;
+            margin-top:12px;
+        }
+        .shop-content p span{
+            color:#333;
+        }
+        .btn{
+            text-align:center;
+            line-height:40px;
+            width:100px;
+            height:40px;
+            background-color:#f10215;
+            color:#fff;
+            float:left;
+            margin-top:75px;
+            margin-left:160px;
+        }
+        .btn:hover{
+            color:#f10215;
+            background-color:#ccc;
+        }
+        .mycat,.myinfos{
+            overflow-y:hidden;
+        }
+        .mycat li,.myinfos li{
+            height:100px;
+            background-color:#fff;
+            margin-top:10px;
+        }
+        .cats-img,.infos-img{
+            float:left;
+        }
+
+        .cats-img img,.infos-img img{
+            width:100px;
+            height:100px;
+        }
+
+        .cats-content,.infos-content{
+            float:left;
+        }
+        .cats-content p,.infos-content p{
+            float:left;
+            color:#999;
+            font-size:20px;
+            height:100px;
+            line-height:100px;
+            text-align:center;
+            margin-left:50px;
+        }
+
+        .infos-content p{
+            white-space:nowrap;
+            text-overflow:ellipsis;
+            width:200px;
+            overflow:hidden;
+            margin-left:20px;
+        }
+
+        .cats-content p span,.infos-content p span{
+            color:#333;
+        }
+
+        .mycat a,.myinfos a{
+            float:left;
+            width:100px;
+            height:40px;
+            margin-left:50px;
+            margin-top:30px;
+            background-color:#f10215;
+            color:#fff;
+            text-align:center;
+            line-height:40px;
+        }
+    </style>
+</head>
+<body>
+    @{
+        <div class="u-contain">
+            <div class="u-top">
+                <div class="info">
+                    <p class="name">@Model.User.user_name</p>
+                    @{
+                        if (Model.User.sex == null)
+                        {
+                            <p class="sex">主人没有设置性别哦</p>
+                        }
+                        else if (Model.User.sex == 1)
+                        {
+                            <p class="sex">男</p>
+                        }
+                        else if (Model.User.sex == 0)
+                        {
+                            <p class="sex">女</p>
+                        }
+                    }
+
+                    @{
+                        if (Model.User.user_introduce == null)
+                        {
+                            <p class="introduce">这个人很懒，什么都没留下...</p>
+                        }
+                        else
+                        {
+                            <p class="introduce">@Model.User.user_introduce</p>
+                        }
+                    }
+                </div>
+                <div class="more">
+                    <a href="@Url.Action("Edit","User")">修改资料</a>
+                </div>
+            </div>
+            <div class="tab-hd">
+                <ul>
+                    <li class="current"><a href="javascript:;">我的店铺</a></li>
+                    <li><a href="javascript:;">我的猫咪</a></li>
+                    <li><a href="javascript:;">我发表的资讯</a></li>
+                    <li><a href="javascript:;">我发表的评论</a></li>
+                    <li><a href="javascript:;">我发表的回复</a></li>
+                </ul>
+            </div>
+            <div class="tab-bd">
+                <div class="current">
+                    <div class="shop">
+                        <div class="shop-img">
+                            <img src="~/images/shop-2.jpg"/>
+                        </div>
+                        <div class="shop-content">
+                            <p style="font-size:24px;">店铺名称：<span style="color:#f10215">@Model.Shop.shop_name</span></p>
+                            <p>店铺评价：<span style="color:#f10215">★ ★ ★ ★ ★</span></p>
+                            <p>累计销量：<span>427单</span></p>
+                            <p>店铺地址：<span>@Model.User.address</span></p>
+                            <p>入驻时间：<span>@Model.Shop.shop_addtime</span></p>
+                        </div>
+                        <div>
+                            <a href="javascript:;"  class="btn">进店</a>
+                        </div>
+                    </div>
+                </div>
+                <div style="overflow-y:scroll">
+                    <ul class="mycat">
+                        @foreach (var item in Model.Cats)
+                        {
+                            <li>
+                                <div class="cats-img">
+                                    <img src="../@item.cat_img"/>
+                                </div>
+
+                                <div class="cats-content">
+                                    <p>猫咪品种：<span>@item.catClass.catClass_name</span></p>
+                                    <p>价格：<span style="color:#f10215;">@item.cat_price/只</span></p>
+                                    <p>在售只数：<span>@item.cat_num</span></p>
+                                </div>
+
+                                <a href="@Url.Action("CatDetails","Cat",new { id=item.cat_id})">详细信息</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div style="overflow-y:scroll">
+                    <ul class="myinfos">
+                        @foreach (var item in Model.Infos)
+                        {
+                            <li>
+                                <div class="infos-img">
+                                    <img src="../@item.info_img" />
+                                </div>
+
+                                <div class="infos-content">
+                                    <p style="">资讯标题：<span>@item.info_title</span></p>
+                                    <p>资讯类别：<span>@item.infoClass.infoClass_name</span></p>
+                                    <p>资讯详情：<span>@item.info_content</span></p>
+                                </div>
+
+                                <a href="@Url.Action("Detail","Info",new { id=item.info_id})">详细信息</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        @foreach(var item in Model.Comments)
+                        {
+                            <li>
+                                <div class="comments">
+                                    <h2>@item.info.info_title</h2>
+
+                                    <p>@item.UserInfo.user_name:<span>@item.comment</span></p>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div>
+                    @foreach(var item in Model.Replys)
+                    {
+                        @item.infoComment_id <br />
+                        @item.infoComment.comment<br />
+                        @item.infoReply_id<br />
+                        @item.reply
+                    }
+                </div>
+            </div>
+            <div class="u-head">
+                <img src="@Model.User.user_head">
+            </div>
+        </div>
+    }
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+				
+				$(".tab-hd li").on("mouseenter",function(){
+					
+					$(this).addClass("current").siblings().removeClass("current");
+					
+					var idx=$(this).index();
+					
+					$(".tab-bd>div").eq(idx).addClass("current").siblings().removeClass("current");
+				});
+			});
+    </script>
+</body>
+</html>
+
