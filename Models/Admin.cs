@@ -14,8 +14,8 @@ namespace Models
     
     public partial class Admin
     {
-        public int Admin_id { get; set; }
-        public string Admin_name { get; set; }
-        public string Admin_pwd { get; set; }
+        public int admin_id { get; set; }
+        public string admin_name { get; set; }
+        public string password { get; set; }
     }
 }

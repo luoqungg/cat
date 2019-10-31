@@ -11,59 +11,72 @@ namespace Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class UserInfo
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public UserInfo()
         {
-            this.FoodShare = new HashSet<FoodShare>();
-            this.FoodShareCollection = new HashSet<FoodShareCollection>();
-            this.FoodShareComment = new HashSet<FoodShareComment>();
-            this.FoodShareReply = new HashSet<FoodShareReply>();
-            this.Post = new HashSet<Post>();
-            this.PostCollection = new HashSet<PostCollection>();
-            this.PostComment = new HashSet<PostComment>();
-            this.PostReply = new HashSet<PostReply>();
-            this.Video = new HashSet<Video>();
-            this.VideoCollection = new HashSet<VideoCollection>();
-            this.VideoComment = new HashSet<VideoComment>();
-            this.VideoReply = new HashSet<VideoReply>();
+            this.Cart = new HashSet<Cart>();
+            this.goodComment = new HashSet<goodComment>();
+            this.goodReply = new HashSet<goodReply>();
+            this.info = new HashSet<info>();
+            this.infoComment = new HashSet<infoComment>();
+            this.infoReply = new HashSet<infoReply>();
+            this.MakePrivate = new HashSet<MakePrivate>();
+            this.Order = new HashSet<Order>();
+            this.Shop = new HashSet<Shop>();
         }
-    
-        public int User_id { get; set; }
-        public string User_pwd { get; set; }
-        public string User_name { get; set; }
-        public string User_img { get; set; }
-        public Nullable<System.DateTime> User_addtime { get; set; }
-        public string User_sex { get; set; }
-        public string User_phone { get; set; }
-        public string User_birthday { get; set; }
-        public string User_sign { get; set; }
-    
+
+        /*public int user_id { get; set; }
+        public string user_name { get; set; }
+        public string phone { get; set; }
+        public string address { get; set; }
+        public string user_head { get; set; }
+        public Nullable<int> age { get; set; }
+        public Nullable<System.DateTime> birth { get; set; }
+        public Nullable<byte> sex { get; set; }
+        public string password { get; set; }
+        public string user_introduce { get; set; }*/
+        public int user_id { get; set; }
+        [Required(ErrorMessage = "请输入用户名")]
+        [RegularExpression(@"^[\\u4e00-\u9fa5_a-zA-Z0-9-\\w]{1,10}$", ErrorMessage = "限10个字符，支持中英文、数字、减号或下划线")]
+        public string user_name { get; set; }
+        [Required(ErrorMessage = "请输入手机号码")]
+        [RegularExpression(@"^1[3|4|5|7|8][0-9]\d{8}$", ErrorMessage = "请输入有效的手机号码")]
+        public string phone { get; set; }
+        public string address { get; set; }
+        public string user_head { get; set; }
+        public Nullable<int> age { get; set; }
+        public Nullable<System.DateTime> birth { get; set; }
+        public Nullable<byte> sex { get; set; }
+        [Required(ErrorMessage = "请输入密码")]
+        [DataType(DataType.Password)]
+        [RegularExpression(@"^([A-Z]|[a-z]|[0-9]|[`~!@#$%^&*()+=|{}':;',\\\\[\\\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]){6,20}$", ErrorMessage = "密码必须为6-20 位的任意字母、数字、字符组合")]
+        public string password { get; set; }
+        [Required(ErrorMessage = "请确认密码")]
+        [Compare("password", ErrorMessage = "与输入的密码不一致")]
+        public string user_pwdAgain { get; set; }
+        public string user_introduce { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FoodShare> FoodShare { get; set; }
+        public virtual ICollection<Cart> Cart { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FoodShareCollection> FoodShareCollection { get; set; }
+        public virtual ICollection<goodComment> goodComment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FoodShareComment> FoodShareComment { get; set; }
+        public virtual ICollection<goodReply> goodReply { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FoodShareReply> FoodShareReply { get; set; }
+        public virtual ICollection<info> info { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Post> Post { get; set; }
+        public virtual ICollection<infoComment> infoComment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PostCollection> PostCollection { get; set; }
+        public virtual ICollection<infoReply> infoReply { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PostComment> PostComment { get; set; }
+        public virtual ICollection<MakePrivate> MakePrivate { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PostReply> PostReply { get; set; }
+        public virtual ICollection<Order> Order { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Video> Video { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VideoCollection> VideoCollection { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VideoComment> VideoComment { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VideoReply> VideoReply { get; set; }
+        public virtual ICollection<Shop> Shop { get; set; }
     }
 }

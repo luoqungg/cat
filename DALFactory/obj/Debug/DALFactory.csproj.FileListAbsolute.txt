@@ -58,3 +58,17 @@ E:\Visual Studio  文件\CatPuzi\CatPuzi\DALFactory\obj\Debug\DALFactory.csproj.
 E:\Visual Studio  文件\CatPuzi\CatPuzi\DALFactory\obj\Debug\DALFactory.csproj.CopyComplete
 E:\Visual Studio  文件\CatPuzi\CatPuzi\DALFactory\obj\Debug\DALFactory.dll
 E:\Visual Studio  文件\CatPuzi\CatPuzi\DALFactory\obj\Debug\DALFactory.pdb
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\DALFactory\bin\Debug\DALFactory.dll
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\DALFactory\bin\Debug\DALFactory.pdb
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\DALFactory\bin\Debug\IDAL.dll
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\DALFactory\bin\Debug\Models.dll
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\DALFactory\bin\Debug\EntityFramework.dll
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\DALFactory\bin\Debug\IDAL.pdb
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\DALFactory\bin\Debug\Models.pdb
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\DALFactory\bin\Debug\Models.dll.config
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\DALFactory\bin\Debug\EntityFramework.xml
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\DALFactory\bin\Debug\zh-Hans\EntityFramework.resources.dll
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\DALFactory\obj\Debug\DALFactory.csprojAssemblyReference.cache
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\DALFactory\obj\Debug\DALFactory.csproj.CopyComplete
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\DALFactory\obj\Debug\DALFactory.dll
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\DALFactory\obj\Debug\DALFactory.pdb

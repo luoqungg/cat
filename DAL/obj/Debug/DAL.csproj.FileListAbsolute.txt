@@ -43,3 +43,10 @@ E:\Visual Studio  文件\CatPuzi\CatPuzi\DAL\obj\Debug\DAL.csproj.CoreCompileInp
 E:\Visual Studio  文件\CatPuzi\CatPuzi\DAL\obj\Debug\DAL.csproj.CopyComplete
 E:\Visual Studio  文件\CatPuzi\CatPuzi\DAL\obj\Debug\DAL.dll
 E:\Visual Studio  文件\CatPuzi\CatPuzi\DAL\obj\Debug\DAL.pdb
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\DAL\obj\Debug\DAL.dll
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\DAL\obj\Debug\DAL.pdb
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\Catpuzi\bin\DAL.dll.config
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\Catpuzi\bin\DAL.dll
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\Catpuzi\bin\DAL.pdb
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\DAL\obj\Debug\DAL.csproj.CopyComplete

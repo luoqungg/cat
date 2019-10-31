@@ -51,3 +51,16 @@ E:\Visual Studio  文件\CatPuzi\CatPuzi\Models\obj\Debug\Models.csproj.CopyComp
 E:\Visual Studio  文件\CatPuzi\CatPuzi\Models\obj\Debug\Models.dll
 E:\Visual Studio  文件\CatPuzi\CatPuzi\Models\obj\Debug\Models.pdb
 E:\Visual Studio  文件\CatPuzi\CatPuzi\Models\obj\Debug\Models.csprojAssemblyReference.cache
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\Models\bin\Debug\Models.dll.config
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\Models\bin\Debug\Models.dll
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\Models\bin\Debug\Models.pdb
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\Models\bin\Debug\EntityFramework.dll
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\Models\bin\Debug\EntityFramework.SqlServer.dll
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\Models\bin\Debug\EntityFramework.xml
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\Models\bin\Debug\EntityFramework.SqlServer.xml
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\Models\bin\Debug\zh-Hans\EntityFramework.resources.dll
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\Models\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\Models\obj\Debug\Models.csprojAssemblyReference.cache
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\Models\obj\Debug\Models.csproj.CopyComplete
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\Models\obj\Debug\Models.dll
+G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\Models\obj\Debug\Models.pdb
