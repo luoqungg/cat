@@ -12,7 +12,7 @@
 <template id="nav">
     <div>
 
-        @foreach (var item in Model.CatName)
+        @foreach (var item in Model.CatName) //获取后台的数据循环显示在一个dom元素上，之后利用vue的特性refs获取所有猫咪种类
         {
             <a ref="@item.catClass_name" style="        display: none"></a>
         }
@@ -117,6 +117,7 @@
         },
         methods: {
             get(data) {
+                console.log(data)
                 let self = this
                 self.$refs.main.$refs.cat.innerHTML = data;
             }

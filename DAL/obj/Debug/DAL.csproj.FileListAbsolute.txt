@@ -50,3 +50,17 @@ G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\Catpuzi\
 G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\Catpuzi\bin\DAL.dll
 G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\Catpuzi\bin\DAL.pdb
 G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Ailocy\Desktop\中期答辩-201626705027罗群\CatPuzi\Catpuzi\bin\DAL.dll.config
+C:\Users\Ailocy\Desktop\中期答辩-201626705027罗群\CatPuzi\Catpuzi\bin\DAL.dll
+C:\Users\Ailocy\Desktop\中期答辩-201626705027罗群\CatPuzi\Catpuzi\bin\DAL.pdb
+C:\Users\Ailocy\Desktop\中期答辩-201626705027罗群\CatPuzi\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\Ailocy\Desktop\中期答辩-201626705027罗群\CatPuzi\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Ailocy\Desktop\中期答辩-201626705027罗群\CatPuzi\DAL\obj\Debug\DAL.dll
+C:\Users\Ailocy\Desktop\中期答辩-201626705027罗群\CatPuzi\DAL\obj\Debug\DAL.pdb
+C:\Users\Ailocy\Desktop\Catpuzi\CatPuzi\Catpuzi\bin\DAL.dll.config
+C:\Users\Ailocy\Desktop\Catpuzi\CatPuzi\Catpuzi\bin\DAL.dll
+C:\Users\Ailocy\Desktop\Catpuzi\CatPuzi\Catpuzi\bin\DAL.pdb
+C:\Users\Ailocy\Desktop\Catpuzi\CatPuzi\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\Ailocy\Desktop\Catpuzi\CatPuzi\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Ailocy\Desktop\Catpuzi\CatPuzi\DAL\obj\Debug\DAL.dll
+C:\Users\Ailocy\Desktop\Catpuzi\CatPuzi\DAL\obj\Debug\DAL.pdb

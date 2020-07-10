@@ -62,3 +62,15 @@ G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\IDAL\obj
 G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\IDAL\obj\Debug\IDAL.csproj.CopyComplete
 G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\IDAL\obj\Debug\IDAL.dll
 G:\Visual Studio  文件\猫咪铺子期末答辩项目\CatPuzi\CatPuzi\IDAL\obj\Debug\IDAL.pdb
+C:\Users\Ailocy\Desktop\中期答辩-201626705027罗群\CatPuzi\IDAL\bin\Debug\IDAL.dll
+C:\Users\Ailocy\Desktop\中期答辩-201626705027罗群\CatPuzi\IDAL\bin\Debug\IDAL.pdb
+C:\Users\Ailocy\Desktop\中期答辩-201626705027罗群\CatPuzi\IDAL\bin\Debug\Models.dll
+C:\Users\Ailocy\Desktop\中期答辩-201626705027罗群\CatPuzi\IDAL\bin\Debug\EntityFramework.dll
+C:\Users\Ailocy\Desktop\中期答辩-201626705027罗群\CatPuzi\IDAL\bin\Debug\Models.pdb
+C:\Users\Ailocy\Desktop\中期答辩-201626705027罗群\CatPuzi\IDAL\bin\Debug\Models.dll.config
+C:\Users\Ailocy\Desktop\中期答辩-201626705027罗群\CatPuzi\IDAL\bin\Debug\EntityFramework.xml
+C:\Users\Ailocy\Desktop\中期答辩-201626705027罗群\CatPuzi\IDAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+C:\Users\Ailocy\Desktop\中期答辩-201626705027罗群\CatPuzi\IDAL\obj\Debug\IDAL.csprojAssemblyReference.cache
+C:\Users\Ailocy\Desktop\中期答辩-201626705027罗群\CatPuzi\IDAL\obj\Debug\IDAL.csproj.CopyComplete
+C:\Users\Ailocy\Desktop\中期答辩-201626705027罗群\CatPuzi\IDAL\obj\Debug\IDAL.dll
+C:\Users\Ailocy\Desktop\中期答辩-201626705027罗群\CatPuzi\IDAL\obj\Debug\IDAL.pdb
